@@ -1,0 +1,36 @@
+.leaderboard-page-body {
+  padding: 30px 20px;
+}
+
+.leaderboard-page-body h1 {
+  margin-bottom: 20px;
+}
+
+.leaderboard-item,
+.leaderboard-item .item-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leaderboard-item {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: var(--list-item);
+}
+
+.leaderboard-item .item-profile span {
+  font-size: 50px;
+  padding: 5px;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.leaderboard-item .item-score {
+  font-size: 25px;
+}

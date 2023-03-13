@@ -1,16 +1,8 @@
-.threads-list {
-  padding: 40px 20px;
-}
-
-.threads-list h1 {
-  margin-bottom: 20px;
-}
-
 .thread-item {
   padding: 20px;
-  margin: 10px 0;
+  margin-bottom: 20px;
   border-radius: 10px;
-  background-color: var(--thread-item);
+  background-color: var(--list-item);
 }
 
 .thread-body {
@@ -31,12 +23,16 @@
 
 .thread-action,
 .thread-action-button,
-.thread-action-button button {
+.thread-action-button button,
+.comment-action,
+.comment-action-button,
+.comment-action-button button {
 display: flex;
 align-items: center;
 }
 
-.thread-action-button button {
+.thread-action-button button,
+.comment-action-button button {
   margin-right: 5px;
   padding: 5px;
   font-size: 20px;
@@ -45,6 +41,45 @@ align-items: center;
 }
 
 .thread-action-button,
-.thread-action-date {
+.thread-action-date,
+.comment-action-button,
+.comment-action-date {
   margin-right: 20px;
+}
+
+.thread-detail {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--list-item);
+  margin-bottom: 20px;
+}
+
+.thread-comment-input {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.thread-comment-input .comment-button {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: var(--button-background);
+  color: var(--button-text);
+  border: none;
+}
+
+.thread-comment-input .input-body:focus {
+  outline: none;
+}
+
+.comment-item {
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  background-color: var(--list-item);
+}
+
+.comment-item p {
+  margin: 10px 0;
 }

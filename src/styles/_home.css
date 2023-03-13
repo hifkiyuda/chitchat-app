@@ -1,0 +1,39 @@
+.home-page-popular-category {
+  padding: 30px 20px 0 20px;
+}
+
+.home-page-popular-category h1 {
+  margin-bottom: 20px;
+}
+
+.home-page-popular-category .categories button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px solid var(--border-input);
+  background-color: var(--list-item);
+}
+
+.home-page-body {
+  padding: 30px 20px;
+}
+
+.home-page-body h1 {
+  margin-bottom: 20px;
+}
+
+.create-new-thread {
+  position: fixed;
+  right: 2%;
+  bottom: 4%;
+  display: flex;
+  align-items: center;
+  font-size: 50px;
+  border: none;
+  background-color: transparent;
+  transition: all .3s ease-in;
+}
+
+.create-new-thread:hover {
+  transform: scale(1.1);
+}

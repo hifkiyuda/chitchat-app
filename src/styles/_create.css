@@ -1,0 +1,55 @@
+.create-page {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.create-page-body {
+  padding: 30px 20px;
+}
+
+.create-page-body h1 {
+  margin-bottom: 10px;
+}
+
+.create-thread-form {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-thread-form input,
+.input-body,
+.create-thread-form button {
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+[data-placeholder]:empty::before {
+  content: attr(data-placeholder);
+  color: var(--main-color);
+  opacity: 0.7;
+  font-size: 16px;
+}
+
+.create-thread-form input,
+.input-body {
+  margin-bottom: 10px;
+  border: 1.5px solid var(--border-input);
+}
+
+.input-body {
+  min-height: 100px;
+}
+
+.create-thread-form button {
+  background-color: var(--button-background);
+  color: var(--button-text);
+  transition: all .3s;
+  border: none;
+}
+
+.create-thread-form button:hover {
+  transform: scale(1.02);
+}
