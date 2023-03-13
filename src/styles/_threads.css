@@ -1,0 +1,50 @@
+.threads-list {
+  padding: 40px 20px;
+}
+
+.threads-list h1 {
+  margin-bottom: 20px;
+}
+
+.thread-item {
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  background-color: var(--thread-item);
+}
+
+.thread-body {
+  margin-bottom: 20px;
+}
+
+.thread-body .category {
+  background-color: var(--button-background);
+  color: var(--button-text);
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.thread-body .title {
+  margin: 10px 0;
+}
+
+.thread-action,
+.thread-action-button,
+.thread-action-button button {
+display: flex;
+align-items: center;
+}
+
+.thread-action-button button {
+  margin-right: 5px;
+  padding: 5px;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+.thread-action-button,
+.thread-action-date {
+  margin-right: 20px;
+}

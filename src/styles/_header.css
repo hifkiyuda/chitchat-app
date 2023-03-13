@@ -1,0 +1,31 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.app-logo {
+  height: 40px;
+}
+
+.navigation,
+.navigation nav,
+.navigation nav a,
+.navigation button {
+  display: flex;
+  align-items: center;
+}
+
+.navigation nav a,
+.navigation button {
+  font-size: 30px;
+  padding: 8px !important;
+  margin: 0 10px;
+}
+
+.navigation button {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}

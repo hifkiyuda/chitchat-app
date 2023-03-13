@@ -1,0 +1,43 @@
+@import url('./_header.css');
+@import url('./_login_register.css');
+@import url('./_threads.css');
+
+:root {
+  --main-text: #222222;
+  --button-background: #222222;
+  --button-text: #eeeeee;
+  --border-input: #8d8d8d;
+  --thread-item: #eeeeee;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 0.1px solid red; */
+}
+
+body {
+  color: var(--main-text);
+  font-family: sans-serif;
+}
+
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+a {
+  color: var(--main-text);
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+.color-option {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
