@@ -12,13 +12,26 @@
 .thread-body .category {
   background-color: var(--button-background);
   color: var(--button-text);
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 5px;
   display: inline-block;
 }
 
 .thread-body .title {
   margin: 10px 0;
+}
+
+.thread-body a {
+  text-decoration: none;
+}
+
+.thread-body .body-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 5;
+  -webkit-line-clamp: 5;
 }
 
 .thread-action,
@@ -61,12 +74,17 @@ align-items: center;
 }
 
 .thread-comment-input .comment-button {
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
   font-size: 16px;
   background-color: var(--button-background);
   color: var(--button-text);
   border: none;
+  transition: all .3s;
+}
+
+.thread-comment-input .comment-button:hover {
+  background-color: #3939f1;
 }
 
 .thread-comment-input .input-body:focus {
@@ -82,4 +100,15 @@ align-items: center;
 
 .comment-item p {
   margin: 10px 0;
+}
+
+.comment-profile {
+  display: flex;
+  align-items: center;
+}
+
+.comment-profile img {
+  width: 30px;
+  margin-right: 10px;
+  border-radius: 5px;
 }

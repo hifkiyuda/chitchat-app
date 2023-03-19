@@ -47,5 +47,6 @@
 
 .login-input button:hover,
 .register-input button:hover {
-  transform: scale(1.02);
+  /* transform: scale(1.02); */
+  background-color: #3939f1;
 }
