@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import { BiCommentDetail } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
@@ -17,27 +17,43 @@ function ThreadItem({
         <div className="body body-item">{parser(body)}</div>
       </div>
       <div className="thread-action">
-        <div className="thread-action-button">
-          <button type="button"><AiOutlineLike className="icon" /></button>
-          <p>{upVotesBy.length}</p>
+        <div className="thread-action-buttons">
+          <div className="thread-action-button">
+            <button type="button"><AiOutlineLike className="icon" /></button>
+            <p>{upVotesBy.length}</p>
+          </div>
+          <div className="thread-action-button">
+            <button type="button"><AiOutlineDislike className="icon" /></button>
+            <p>{downVotesBy.length}</p>
+          </div>
+          <div className="thread-action-button">
+            <button type="button"><Link to={`/threads/${id}`}><BiCommentDetail className="icon" /></Link></button>
+            <p>{totalComments}</p>
+          </div>
         </div>
-        <div className="thread-action-button">
-          <button type="button"><AiOutlineDislike className="icon" /></button>
-          <p>{downVotesBy.length}</p>
+        <div className="thread-action-created-and-date">
+          <p className="thread-action-date">{postedAt(createdAt)}</p>
+          <p className="thread-action-created">
+            Created by
+            {' '}
+            <strong>{user.name}</strong>
+          </p>
         </div>
-        <div className="thread-action-button">
-          <button type="button"><Link to={`/threads/${id}`}><BiCommentDetail className="icon" /></Link></button>
-          <p>{totalComments}</p>
-        </div>
-        <p className="thread-action-date">{postedAt(createdAt)}</p>
-        <p className="thread-action-created">
-          Created by
-          {' '}
-          <strong>{user.name}</strong>
-        </p>
       </div>
     </div>
   );
 }
+
+ThreadItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  upVotesBy: PropTypes.arrayOf(PropTypes.string),
+  downVotesBy: PropTypes.arrayOf(PropTypes.string),
+  createdAt: PropTypes.string.isRequired,
+  totalComments: PropTypes.number.isRequired,
+  user: PropTypes.object.isRequired,
+};
 
 export default ThreadItem;

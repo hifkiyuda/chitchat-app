@@ -1,6 +1,5 @@
 import React from 'react';
-import { AiFillHome } from 'react-icons/ai';
-import { RiBarChart2Fill, RiLogoutBoxFill } from 'react-icons/ri';
+import { RiBarChart2Fill, RiLogoutBoxFill, RiChat1Fill } from 'react-icons/ri';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import logo from '../logo.svg';
@@ -13,7 +12,7 @@ function Header({ logout }) {
       </Link>
       <div className="navigation">
         <nav>
-          <Link to="/"><AiFillHome /></Link>
+          <Link to="/"><RiChat1Fill /></Link>
           <Link to="/leaderboard"><RiBarChart2Fill /></Link>
         </nav>
         <button type="button" onClick={logout}><RiLogoutBoxFill /></button>

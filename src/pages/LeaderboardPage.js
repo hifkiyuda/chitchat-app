@@ -17,7 +17,7 @@ function LeaderboardPage() {
   return (
     <section className="leaderboard-page">
       <div className="leaderboard-page-body">
-        <h1>Leaderboard</h1>
+        <h2>Leaderboard</h2>
         <LeaderboardsList leaderboards={leaderboards} />
       </div>
     </section>

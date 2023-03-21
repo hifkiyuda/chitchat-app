@@ -5,10 +5,12 @@
 @import url('./_create.css');
 @import url('./_leaderboard.css');
 @import url('./_detail.css');
+@import url('./_responsive.css');
 
 :root {
   --main-text: #222222;
   --button-background: #5b68fe;
+  --button-hover: #3939f1;
   --button-text: #eeeeee;
   --border-input: #8d8d8d;
   --list-item: #eaeaea;
@@ -23,12 +25,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* border: 0.1px solid red; */
 }
 
 body {
   color: var(--main-text);
   font-family: 'Inter', sans-serif;
+  font-size: 16px;
 }
 
 .app-container {

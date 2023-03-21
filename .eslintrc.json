@@ -24,6 +24,8 @@
         "no-alert": "off",
         "import/prefer-default-export": "off",
         "jsx-a11y/control-has-associated-label": "off",
-        "react/jsx-props-no-spreading": "off"
+        "react/jsx-props-no-spreading": "off",
+        "react/require-default-props": "off",
+        "react/forbid-prop-types": "off"
     }
 }

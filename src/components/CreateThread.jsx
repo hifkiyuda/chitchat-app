@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import useInput from '../hooks/useInput';
 
 function CreateThread({ createThread }) {
@@ -48,5 +48,9 @@ function CreateThread({ createThread }) {
     </form>
   );
 }
+
+CreateThread.propTypes = {
+  createThread: PropTypes.func.isRequired,
+};
 
 export default CreateThread;

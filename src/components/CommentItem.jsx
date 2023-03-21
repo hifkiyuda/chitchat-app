@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import parser from 'html-react-parser';
 import { postedAt } from '../utils';
@@ -28,5 +28,13 @@ function CommentItem({
     </div>
   );
 }
+
+CommentItem.propTypes = {
+  owner: PropTypes.object.isRequired,
+  content: PropTypes.string.isRequired,
+  upVotesBy: PropTypes.arrayOf(PropTypes.string),
+  downVotesBy: PropTypes.arrayOf(PropTypes.string),
+  createdAt: PropTypes.string.isRequired,
+};
 
 export default CommentItem;

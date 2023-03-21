@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 function ThreadCommentInput({ createComment }) {
   const [content, setContent] = useState('');
@@ -26,5 +26,9 @@ function ThreadCommentInput({ createComment }) {
     </div>
   );
 }
+
+ThreadCommentInput.propTypes = {
+  createComment: PropTypes.func.isRequired,
+};
 
 export default ThreadCommentInput;

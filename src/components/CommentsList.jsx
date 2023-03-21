@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import CommentItem from './CommentItem';
 
 function CommentsList({ comments }) {
@@ -13,5 +13,9 @@ function CommentsList({ comments }) {
     </div>
   );
 }
+
+CommentsList.propTypes = {
+  comments: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default CommentsList;

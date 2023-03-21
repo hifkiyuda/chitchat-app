@@ -1,18 +1,21 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import LeaderboardItem from './LeaderboardItem';
 
 function LeaderboardsList({ leaderboards }) {
-  console.log(leaderboards);
   return (
     <div className="leaderboards-list">
       {
         leaderboards.map((leaderboard) => (
-          <LeaderboardItem key={leaderboard.id} {...leaderboard} />
+          <LeaderboardItem key={leaderboard.user.id} {...leaderboard} />
         ))
       }
     </div>
   );
 }
+
+LeaderboardsList.propTypes = {
+  leaderboards: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default LeaderboardsList;

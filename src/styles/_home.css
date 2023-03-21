@@ -1,9 +1,15 @@
-.home-page-popular-category {
-  padding: 20px 0;
+.home-page {
+  padding: 30px 20px;
+  font-size: 1rem;
 }
 
-.home-page-popular-category .category-header {
-  margin-bottom: 10px;
+.home-page h2 {
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.home-page-popular-category {
+  margin-bottom: 20px;
 }
 
 .home-page-popular-category .categories button {
@@ -13,28 +19,28 @@
   border: none;
   background-color: var(--category);
   color: var(--category-text);
+  font-size: 1rem;
+  transition: all .3s ease-in;
 }
 
-.home-page-body {
-  padding: 20px 0;
-}
-
-.home-page-body h2 {
-  margin-bottom: 20px;
+.home-page-popular-category .categories button:hover {
+  background-color: var(--button-hover);
 }
 
 .create-new-thread {
   position: fixed;
-  right: 2%;
-  bottom: 4%;
+  right: 3%;
+  bottom: 6%;
   display: flex;
   align-items: center;
-  font-size: 50px;
+  font-size: 60px;
   border: none;
   background-color: transparent;
+  color: var(--category);
   transition: all .3s ease-in;
 }
 
 .create-new-thread:hover {
   transform: scale(1.1);
+  color: var(--button-hover);
 }

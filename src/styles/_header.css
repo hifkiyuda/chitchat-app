@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 20px;
 }
 
 .app-logo {
@@ -15,7 +15,6 @@
 .navigation button {
   display: flex;
   align-items: center;
-  color: var(--list-text);
 }
 
 .navigation nav a,
@@ -23,6 +22,12 @@
   font-size: 30px;
   padding: 8px !important;
   margin: 0 10px;
+  transition: all .2s ease-in;
+}
+
+.navigation nav a:hover,
+.navigation button:hover {
+  color: var(--button-hover);
 }
 
 .navigation button {

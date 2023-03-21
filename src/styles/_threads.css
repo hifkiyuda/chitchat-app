@@ -4,6 +4,7 @@
   background-color: var(--list-item);
   color: var(--list-text);
   border-radius: 10px;
+  font-size: 1rem;
 }
 
 .thread-body {
@@ -32,7 +33,7 @@
 }
 
 .detail-link:hover {
-  color: var(--category);
+  color: var(--button-hover);
 }
 
 .thread-body .body-item {
@@ -51,11 +52,13 @@
 .thread-action,
 .thread-action-button,
 .thread-action-button button,
+.thread-action-buttons,
+.thread-action-created-and-date,
 .comment-action,
 .comment-action-button,
 .comment-action-button button {
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .thread-action-button button,
@@ -111,11 +114,11 @@ align-items: center;
   background-color: var(--button-background);
   color: var(--button-text);
   border: none;
-  transition: all .3s;
+  transition: all .3s ease-in;
 }
 
 .thread-comment-input .comment-button:hover {
-  background-color: #3939f1;
+  background-color: var(--button-hover);
 }
 
 .thread-comment-input .input-body:focus {

@@ -1,0 +1,171 @@
+@media screen and (max-width: 700px) {
+  .create-new-thread {
+    font-size: 50px;
+    right: 4%;
+    bottom: 5%;
+  }
+
+  .thread-body .title {
+    font-size: 1.3rem;
+  }
+
+  .thread-body .body {
+    font-size: 16px;
+  }
+
+  .thread-body .category,
+  .home-page-popular-category .categories button {
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .thread-action {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .thread-action-buttons {
+    margin-bottom: 10px;
+  }
+
+  .thread-action-created-and-date {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .leaderboard-item .item-profile .avatar {
+    width: 50px;
+  }
+
+  .login-box,
+  .register-box {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .home-page,
+  .create-page-body,
+  .detail-page,
+  .leaderboard-page-body {
+    padding: 25px 15px;
+  }
+
+  .home-page h2,
+  .leaderboard-page-body h2 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+  }
+
+  .create-page-body h2 {
+    font-size: 1.3rem;
+  }
+
+  .thread-item,
+  .thread-detail {
+    padding: 15px;
+  }
+
+  .thread-body .title {
+    font-size: 1.2rem;
+  }
+
+  .thread-body .body,
+  .create-page-body p {
+    font-size: 15px;
+  }
+
+  .thread-body .category,
+  .home-page-popular-category .categories button {
+    padding: 6px;
+    border-radius: 6px;
+  }
+  
+  .create-new-thread {
+    font-size: 50px;
+    right: 5%;
+    bottom: 5%;
+  }
+
+  .thread-action-created-and-date {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .thread-action-created-and-date .thread-action-date {
+    margin-bottom: 10px;
+  }
+
+  .leaderboard-item {
+    padding: 10px;
+  }
+  
+  .leaderboard-item h3 {
+    font-size: 15px;
+  }
+  
+  .leaderboard-item .item-profile .avatar {
+    width: 40px;
+    margin-right: 10px;
+  }
+  
+  .leaderboard-item .item-score {
+    font-size: 20px;
+  }
+
+  .login-box,
+  .register-box {
+    width: 90%;
+  }
+
+  .login-input,
+  .register-input {
+    padding: 20px 25px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .app-header {
+    flex-direction: column;
+    border-bottom: 0.1px solid var(--list-item);
+  }
+
+  .app-logo {
+    margin-bottom: 10px;
+  }
+
+  .home-page h2,
+  .create-page-body h2,
+  .leaderboard-page-body h2 {
+    font-size: 1.2rem;
+  }
+
+  .thread-body .title {
+    font-size: 1.1rem;
+  }
+
+  .create-new-thread {
+    font-size: 50px;
+    right: 5%;
+    bottom: 5%;
+  }
+
+  .thread-action-created-and-date {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .thread-action-created-and-date .thread-action-date {
+    margin-bottom: 10px;
+  }
+
+  .leaderboard-item .item-profile .avatar {
+    width: 30px;
+  }
+
+  .login-box,
+  .register-box {
+    width: 100%;
+  }
+}

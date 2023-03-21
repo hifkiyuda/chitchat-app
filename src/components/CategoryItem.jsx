@@ -5,13 +5,13 @@ function CategoryItem() {
   return (
     <>
       <button>
-        <p>#Technology</p>
+        #Technology
       </button>
       <button>
-        <p>#Tech</p>
+        #Tech
       </button>
       <button>
-        <p>#React</p>
+        #React
       </button>
     </>
   );

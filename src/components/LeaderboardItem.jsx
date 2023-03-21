@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function LeaderboardItem({ user, score }) {
   return (
@@ -12,5 +12,10 @@ function LeaderboardItem({ user, score }) {
     </div>
   );
 }
+
+LeaderboardItem.propTypes = {
+  user: PropTypes.object.isRequired,
+  score: PropTypes.number.isRequired,
+};
 
 export default LeaderboardItem;
