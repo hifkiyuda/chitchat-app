@@ -3,7 +3,7 @@ import api from '../../utils/api';
 
 const ActionType = {
   RECEIVE_THREADS: 'RECEIVE_THREADS',
-  ADD_THREAD: 'ADD_THREAD',
+  CREATE_THREAD: 'CREATE_THREAD',
 };
 
 function receiveThreadsActionCreator(threads) {
@@ -15,22 +15,22 @@ function receiveThreadsActionCreator(threads) {
   };
 }
 
-function addThreadActionCreator(thread) {
+function createThreadActionCreator(thread) {
   return {
-    type: ActionType.ADD_THREAD,
+    type: ActionType.CREATE_THREAD,
     payload: {
       thread,
     },
   };
 }
 
-function asyncAddThread({ title, body, category }) {
+function asyncCreateThread({ thread }) {
   return async (dispatch) => {
     dispatch(showLoading());
 
     try {
-      const thread = await api.createThread({ title, body, category });
-      dispatch(addThreadActionCreator(thread));
+      const createThread = await api.createThread({ ...thread });
+      dispatch(createThreadActionCreator(createThread));
     } catch (error) {
       alert(error.message);
     }
@@ -42,6 +42,6 @@ function asyncAddThread({ title, body, category }) {
 export {
   ActionType,
   receiveThreadsActionCreator,
-  addThreadActionCreator,
-  asyncAddThread,
+  createThreadActionCreator,
+  asyncCreateThread,
 };

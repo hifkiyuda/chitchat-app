@@ -1,7 +1,4 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import { BiCommentDetail } from 'react-icons/bi';
@@ -16,20 +13,20 @@ function ThreadItem({
     <div className="thread-item">
       <div className="thread-body">
         <p className="category">{`#${category}`}</p>
-        <h2 className="title"><Link to={`/threads/${id}`}>{title}</Link></h2>
+        <h2 className="title"><Link className="detail-link" to={`/threads/${id}`}>{title}</Link></h2>
         <div className="body body-item">{parser(body)}</div>
       </div>
       <div className="thread-action">
         <div className="thread-action-button">
-          <button type="button"><AiOutlineLike /></button>
+          <button type="button"><AiOutlineLike className="icon" /></button>
           <p>{upVotesBy.length}</p>
         </div>
         <div className="thread-action-button">
-          <button type="button"><AiOutlineDislike /></button>
+          <button type="button"><AiOutlineDislike className="icon" /></button>
           <p>{downVotesBy.length}</p>
         </div>
         <div className="thread-action-button">
-          <button type="button"><BiCommentDetail /></button>
+          <button type="button"><Link to={`/threads/${id}`}><BiCommentDetail className="icon" /></Link></button>
           <p>{totalComments}</p>
         </div>
         <p className="thread-action-date">{postedAt(createdAt)}</p>

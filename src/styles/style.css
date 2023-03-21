@@ -8,10 +8,15 @@
 
 :root {
   --main-text: #222222;
-  --button-background: #222222;
+  --button-background: #5b68fe;
   --button-text: #eeeeee;
   --border-input: #8d8d8d;
-  --list-item: #eeeeee;
+  --list-item: #eaeaea;
+  --list-text: #222222;
+  --comment-item: #eaeaea;
+  --category: #5b68fe;
+  --category-text: #eaeaea;
+  --category-box: #222222;
 }
 
 * {

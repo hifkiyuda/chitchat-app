@@ -1,24 +1,25 @@
 .home-page-popular-category {
-  padding: 30px 20px 0 20px;
+  padding: 20px 0;
 }
 
-.home-page-popular-category h1 {
-  margin-bottom: 20px;
+.home-page-popular-category .category-header {
+  margin-bottom: 10px;
 }
 
 .home-page-popular-category .categories button {
   padding: 10px;
   margin: 5px;
   border-radius: 10px;
-  border: 1px solid var(--border-input);
-  background-color: var(--list-item);
+  border: none;
+  background-color: var(--category);
+  color: var(--category-text);
 }
 
 .home-page-body {
-  padding: 30px 20px;
+  padding: 20px 0;
 }
 
-.home-page-body h1 {
+.home-page-body h2 {
   margin-bottom: 20px;
 }
 

@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import parser from 'html-react-parser';
@@ -14,14 +13,14 @@ function CommentItem({
         <img src={owner.avatar} alt={owner.name} />
         <p><strong>{owner.name}</strong></p>
       </div>
-      <div>{parser(content)}</div>
+      <div className="comment-content">{parser(content)}</div>
       <div className="comment-action">
         <div className="comment-action-button">
-          <button type="button"><AiOutlineLike /></button>
+          <button type="button"><AiOutlineLike className="icon" /></button>
           <p>{upVotesBy.length}</p>
         </div>
         <div className="comment-action-button">
-          <button type="button"><AiOutlineDislike /></button>
+          <button type="button"><AiOutlineDislike className="icon" /></button>
           <p>{downVotesBy.length}</p>
         </div>
         <p className="comment-action-date">{postedAt(createdAt)}</p>

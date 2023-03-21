@@ -14,18 +14,14 @@
 }
 
 .leaderboard-item {
-  padding: 10px;
+  padding: 10px 20px 10px 10px;
   border-radius: 10px;
   margin-bottom: 10px;
   background-color: var(--list-item);
 }
 
-.leaderboard-item .item-profile span {
-  font-size: 50px;
-  padding: 5px;
-  background-color: blueviolet;
-  color: white;
-  border-radius: 5px;
+.leaderboard-item .item-profile .avatar {
+  border-radius: 10px;
   display: flex;
   align-items: center;
   margin-right: 10px;

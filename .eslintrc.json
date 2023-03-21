@@ -20,6 +20,10 @@
     "rules": {
         "react/jsx-filename-extension": "off",
         "linebreak-style": "off",
-        "import/no-extraneous-dependencies": "off"
+        "import/no-extraneous-dependencies": "off",
+        "no-alert": "off",
+        "import/prefer-default-export": "off",
+        "jsx-a11y/control-has-associated-label": "off",
+        "react/jsx-props-no-spreading": "off"
     }
 }

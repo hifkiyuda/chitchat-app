@@ -15,6 +15,7 @@
 .navigation button {
   display: flex;
   align-items: center;
+  color: var(--list-text);
 }
 
 .navigation nav a,

@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import LeaderboardsList from '../components/LeaderboardsList';
+import { asyncReceiveLeaderboards } from '../states/leaderboards/action';
 
 function LeaderboardPage() {
+  const {
+    leaderboards = [],
+  } = useSelector((states) => states);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(asyncReceiveLeaderboards());
+  }, [dispatch]);
+
   return (
     <section className="leaderboard-page">
       <div className="leaderboard-page-body">
         <h1>Leaderboard</h1>
-        <LeaderboardsList />
+        <LeaderboardsList leaderboards={leaderboards} />
       </div>
     </section>
   );

@@ -1,28 +1,38 @@
 .thread-item {
   padding: 20px;
   margin-bottom: 20px;
-  border-radius: 10px;
   background-color: var(--list-item);
+  color: var(--list-text);
+  border-radius: 10px;
 }
 
 .thread-body {
   margin-bottom: 20px;
+  text-decoration: none;
 }
 
 .thread-body .category {
-  background-color: var(--button-background);
-  color: var(--button-text);
-  padding: 5px 10px;
-  border-radius: 5px;
+  background-color: var(--category);
+  color: var(--category-text);
+  padding: 10px;
+  border-radius: 10px;
   display: inline-block;
 }
 
 .thread-body .title {
-  margin: 10px 0;
+  margin: 20px 0;
+  font-weight: 400;
 }
 
-.thread-body a {
+.detail-link {
   text-decoration: none;
+  color: var(--list-text);
+  font-weight: 400;
+  transition: all .2s ease-in;
+}
+
+.detail-link:hover {
+  color: var(--category);
 }
 
 .thread-body .body-item {
@@ -32,6 +42,10 @@
   -webkit-box-orient: vertical;
   line-clamp: 5;
   -webkit-line-clamp: 5;
+}
+
+.thread-action-button {
+  z-index: 999;
 }
 
 .thread-action,
@@ -53,6 +67,11 @@ align-items: center;
   border: none;
 }
 
+.thread-action-button .icon,
+.comment-action-button .icon {
+  color: var(--list-text);
+}
+
 .thread-action-button,
 .thread-action-date,
 .comment-action-button,
@@ -60,10 +79,22 @@ align-items: center;
   margin-right: 20px;
 }
 
+.thread-action-created-detail {
+  display: flex;
+  align-items: center;
+}
+
+.thread-action-created-detail img {
+  width: 30px;
+  border-radius: 25%;
+  margin: 0 5px 0 10px;
+}
+
 .thread-detail {
   padding: 20px;
   border-radius: 10px;
   background-color: var(--list-item);
+  color: var(--list-text);
   margin-bottom: 20px;
 }
 
@@ -92,14 +123,15 @@ align-items: center;
 }
 
 .comment-item {
-  padding: 10px 20px;
+  padding: 20px;
   margin: 10px 0;
   border-radius: 10px;
   background-color: var(--list-item);
+  color: var(--list-text);
 }
 
-.comment-item p {
-  margin: 10px 0;
+.comment-item .comment-content {
+  margin: 20px 0;
 }
 
 .comment-profile {
@@ -110,5 +142,5 @@ align-items: center;
 .comment-profile img {
   width: 30px;
   margin-right: 10px;
-  border-radius: 5px;
+  border-radius: 25%;
 }

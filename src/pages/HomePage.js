@@ -28,11 +28,11 @@ function HomePage() {
   return (
     <section className="home-page">
       <div className="home-page-popular-category">
-        <h1>Popular Category</h1>
+        <h2 className="category-header">Popular Category</h2>
         <CategoriesList />
       </div>
       <div className="home-page-body">
-        <h1>Threads</h1>
+        <h2>Threads</h2>
         <ThreadsList threads={threadsList} />
       </div>
       <Link to="/create">

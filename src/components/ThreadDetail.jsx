@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import parser from 'html-react-parser';
@@ -17,19 +16,19 @@ function ThreadDetail({
       </div>
       <div className="thread-action">
         <div className="thread-action-button">
-          <button type="button"><AiOutlineLike /></button>
+          <button type="button"><AiOutlineLike className="icon" /></button>
           <p>{upVotesBy.length}</p>
         </div>
         <div className="thread-action-button">
-          <button type="button"><AiOutlineDislike /></button>
+          <button type="button"><AiOutlineDislike className="icon" /></button>
           <p>{downVotesBy.length}</p>
         </div>
         <p className="thread-action-date">{postedAt(createdAt)}</p>
-        <p className="thread-action-created">
-          Created by
-          {' '}
+        <div className="thread-action-created-detail">
+          <p>Created by </p>
+          <img src={owner.avatar} alt={owner.name} />
           <strong>{owner.name}</strong>
-        </p>
+        </div>
       </div>
     </div>
   );

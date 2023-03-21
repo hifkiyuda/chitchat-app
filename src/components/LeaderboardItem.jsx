@@ -1,32 +1,15 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { AiOutlineLike } from 'react-icons/ai';
 
-function LeaderboardItem() {
+function LeaderboardItem({ user, score }) {
   return (
-    <>
-      <div className="leaderboard-item">
-        <div className="item-profile">
-          <span><AiOutlineLike /></span>
-          <h3>Hifki Yuda</h3>
-        </div>
-        <div className="item-score">80</div>
+    <div className="leaderboard-item">
+      <div className="item-profile">
+        <img className="avatar" src={user.avatar} alt={user.name} />
+        <h3>{user.name}</h3>
       </div>
-      <div className="leaderboard-item">
-        <div className="item-profile">
-          <span><AiOutlineLike /></span>
-          <h3>Hifki Yuda</h3>
-        </div>
-        <div className="item-score">80</div>
-      </div>
-      <div className="leaderboard-item">
-        <div className="item-profile">
-          <span><AiOutlineLike /></span>
-          <h3>Hifki Yuda</h3>
-        </div>
-        <div className="item-score">80</div>
-      </div>
-    </>
+      <div className="item-score">{score}</div>
+    </div>
   );
 }
 

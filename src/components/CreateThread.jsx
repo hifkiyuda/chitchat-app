@@ -1,13 +1,28 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+import React, { useState } from 'react';
 import useInput from '../hooks/useInput';
 
-function CreateThread() {
+function CreateThread({ createThread }) {
   const [title, onTitleChange] = useInput('');
+  const [body, setBody] = useState('');
   const [category, onCategoryChange] = useInput('');
-  const [body, onBodyChange] = useInput('');
+
+  const onBodyChange = (event) => {
+    setBody(event.target.innerHTML);
+  };
+
+  const createThreadSumbitHandler = (event) => {
+    event.preventDefault();
+
+    createThread({
+      title,
+      body,
+      category,
+    });
+  };
 
   return (
-    <form className="create-thread-form">
+    <form className="create-thread-form" onSubmit={createThreadSumbitHandler}>
       <input
         type="text"
         placeholder="Title"
