@@ -4,6 +4,9 @@ import api from '../../utils/api';
 const ActionType = {
   RECEIVE_THREADS: 'RECEIVE_THREADS',
   CREATE_THREAD: 'CREATE_THREAD',
+  TOGGLE_LIKE_THREAD: 'TOGGLE_LIKE_THREAD',
+  TOGGLE_DISLIKE_THREAD: 'TOGGLE_DISLIKE_THREAD',
+  TOGGLE_NEUTRALIZE_THREAD: 'TOGGLE_NEUTRALIZE_THREAD',
 };
 
 function receiveThreadsActionCreator(threads) {
@@ -24,6 +27,36 @@ function createThreadActionCreator(thread) {
   };
 }
 
+function toggleLikeThreadActionCreator({ threadId, userId }) {
+  return {
+    type: ActionType.TOGGLE_LIKE_THREAD,
+    payload: {
+      threadId,
+      userId,
+    },
+  };
+}
+
+function toggleDislikeThreadActionCreator({ threadId, userId }) {
+  return {
+    type: ActionType.TOGGLE_DISLIKE_THREAD,
+    payload: {
+      threadId,
+      userId,
+    },
+  };
+}
+
+function toggleNeutralizeThreadActionCreator({ threadId, userId }) {
+  return {
+    type: ActionType.TOGGLE_NEUTRALIZE_THREAD,
+    payload: {
+      threadId,
+      userId,
+    },
+  };
+}
+
 function asyncCreateThread({ thread }) {
   return async (dispatch) => {
     dispatch(showLoading());
@@ -39,9 +72,57 @@ function asyncCreateThread({ thread }) {
   };
 }
 
+function asyncToogleLikeThread(threadId) {
+  return async (dispatch, getState) => {
+    const { authUser } = getState();
+    dispatch(toggleLikeThreadActionCreator({ threadId, userId: authUser.id }));
+
+    try {
+      await api.toggleLikeThread(threadId);
+    } catch (error) {
+      alert(error.message);
+      dispatch(toggleLikeThreadActionCreator({ threadId, userId: authUser.id }));
+    }
+  };
+}
+
+function asyncToogleDislikeThread(threadId) {
+  return async (dispatch, getState) => {
+    const { authUser } = getState();
+    dispatch(toggleDislikeThreadActionCreator({ threadId, userId: authUser.id }));
+
+    try {
+      await api.toggleDislikeThread(threadId);
+    } catch (error) {
+      alert(error.message);
+      dispatch(toggleDislikeThreadActionCreator({ threadId, userId: authUser.id }));
+    }
+  };
+}
+
+function asyncToogleNeutralizeThread(threadId) {
+  return async (dispatch, getState) => {
+    const { authUser } = getState();
+    dispatch(toggleNeutralizeThreadActionCreator({ threadId, userId: authUser.id }));
+
+    try {
+      await api.toggleNeutralizeThread(threadId);
+    } catch (error) {
+      alert(error.message);
+      dispatch(toggleNeutralizeThreadActionCreator({ threadId, userId: authUser.id }));
+    }
+  };
+}
+
 export {
   ActionType,
   receiveThreadsActionCreator,
   createThreadActionCreator,
   asyncCreateThread,
+  toggleLikeThreadActionCreator,
+  asyncToogleLikeThread,
+  toggleDislikeThreadActionCreator,
+  asyncToogleDislikeThread,
+  toggleNeutralizeThreadActionCreator,
+  asyncToogleNeutralizeThread,
 };

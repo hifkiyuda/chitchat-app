@@ -12,6 +12,7 @@ import DetailPage from './pages/DetailPage';
 import { asyncPreloadProcess } from './states/isPreload/action';
 import { asyncUnsetAuthUser } from './states/authUser/action';
 import Loading from './components/Loading';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   const {
@@ -60,6 +61,7 @@ function App() {
             <Route path="/create" element={<CreatePage />} />
             <Route path="/leaderboard" element={<LeaderboardPage />} />
             <Route path="/threads/:id" element={<DetailPage />} />
+            <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </main>
       </div>

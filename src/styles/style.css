@@ -52,3 +52,12 @@ button {
   left: 0;
   bottom: 0;
 }
+
+.not-found-page {
+  padding-top: 20%;
+  text-align: center;
+}
+
+.not-found-page p {
+  font-size: 40px;
+}

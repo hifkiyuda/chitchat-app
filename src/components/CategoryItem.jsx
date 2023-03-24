@@ -1,20 +1,20 @@
-/* eslint-disable react/button-has-type */
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function CategoryItem() {
+function CategoryItem({ category, clickCategory }) {
+  const onCategoryClick = (event) => {
+    event.stopPropagation();
+    clickCategory(category);
+  };
+
   return (
-    <>
-      <button>
-        #Technology
-      </button>
-      <button>
-        #Tech
-      </button>
-      <button>
-        #React
-      </button>
-    </>
+    <button type="button" onClick={onCategoryClick}>{`#${category}`}</button>
   );
 }
+
+CategoryItem.propTypes = {
+  category: PropTypes.string.isRequired,
+  clickCategory: PropTypes.func.isRequired,
+};
 
 export default CategoryItem;

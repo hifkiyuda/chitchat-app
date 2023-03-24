@@ -26,6 +26,8 @@
         "jsx-a11y/control-has-associated-label": "off",
         "react/jsx-props-no-spreading": "off",
         "react/require-default-props": "off",
-        "react/forbid-prop-types": "off"
+        "react/forbid-prop-types": "off",
+        "max-len": "off",
+        "no-shadow": "off"
     }
 }
