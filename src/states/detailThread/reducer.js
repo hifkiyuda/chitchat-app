@@ -11,7 +11,7 @@ function detailThreadReducer(detailThread = null, action = {}) {
         ...detailThread,
         comments: detailThread.comments.includes(action.payload.threadId) ? detailThread.comments.filter((id) => id !== action.payload.threadId) : detailThread.comments.concat([action.payload.threadId]),
       };
-    case ActionType.TOGGLE_LIKE_DETAIL_THREAD:
+    case ActionType.LIKE_DETAIL_THREAD:
       if (detailThread.id === action.payload.threadId) {
         return {
           ...detailThread,
@@ -21,7 +21,7 @@ function detailThreadReducer(detailThread = null, action = {}) {
         };
       }
       return detailThread;
-    case ActionType.TOGGLE_DISLIKE_DETAIL_THREAD:
+    case ActionType.DISLIKE_DETAIL_THREAD:
       if (detailThread.id === action.payload.threadId) {
         return {
           ...detailThread,
@@ -31,13 +31,13 @@ function detailThreadReducer(detailThread = null, action = {}) {
         };
       }
       return detailThread;
-    case ActionType.TOGGLE_NEUTRALIZE_DETAIL_THREAD:
+    case ActionType.NEUTRALIZE_DETAIL_THREAD:
       return {
         ...detailThread,
         upVotesBy: detailThread.upVotesBy.includes(action.payload.userId) ? detailThread.upVotesBy.filter((id) => id !== action.payload.userId) : detailThread.upVotesBy,
         downVotesBy: detailThread.downVotesBy.includes(action.payload.userId) ? detailThread.downVotesBy.filter((id) => id !== action.payload.userId) : detailThread.downVotesBy,
       };
-    case ActionType.TOGGLE_LIKE_COMMENT:
+    case ActionType.LIKE_COMMENT:
       return {
         ...detailThread,
         comments: detailThread.comments.map((comment) => {
@@ -50,7 +50,7 @@ function detailThreadReducer(detailThread = null, action = {}) {
           return comment;
         }),
       };
-    case ActionType.TOGGLE_DISLIKE_COMMENT:
+    case ActionType.DISLIKE_COMMENT:
       return {
         ...detailThread,
         comments: detailThread.comments.map((comment) => {
@@ -63,7 +63,7 @@ function detailThreadReducer(detailThread = null, action = {}) {
           return comment;
         }),
       };
-    case ActionType.TOGGLE_NEUTRALIZE_COMMENT:
+    case ActionType.NEUTRALIZE_COMMENT:
       return {
         ...detailThread,
         comments: detailThread.comments.map((comment) => {

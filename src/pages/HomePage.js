@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MdAddCircle } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import CategoriesList from '../components/CategoriesList';
 import ThreadsList from '../components/ThreadsList';
 import { asyncPopulateUsersAndThreads } from '../states/shared/action';
-import { asyncToogleDislikeThread, asyncToogleLikeThread, asyncToogleNeutralizeThread } from '../states/threads/action';
+import { asyncDislikeThread, asyncLikeThread, asyncNeutralizeThread } from '../states/threads/action';
+import {
+  clearActiveCategoryActionCreator, receiveFilteredCategoriesActionCreator, setActiveCategoryActionCreator,
+} from '../states/categories/action';
 
 function HomePage() {
-  const [filteredCategories, setFilteredCategories] = useState(null);
-  const [activeCategory, setActiveCategory] = useState('');
-
   const {
     threads = [],
     users = [],
     authUser,
+    categories,
   } = useSelector((states) => states);
 
   const dispatch = useDispatch();
@@ -24,15 +25,15 @@ function HomePage() {
   }, [dispatch]);
 
   const onLikeThread = (id) => {
-    dispatch(asyncToogleLikeThread(id));
+    dispatch(asyncLikeThread(id));
   };
 
   const onDislikeThread = (id) => {
-    dispatch(asyncToogleDislikeThread(id));
+    dispatch(asyncDislikeThread(id));
   };
 
   const onNeutralizeThread = (id) => {
-    dispatch(asyncToogleNeutralizeThread(id));
+    dispatch(asyncNeutralizeThread(id));
   };
 
   const threadsList = threads.map((thread) => ({
@@ -42,12 +43,17 @@ function HomePage() {
   }));
 
   const onFilterCategory = (selectedCategory) => {
-    setFilteredCategories(threads.filter((thread) => thread.category === selectedCategory));
+    const result = (threads.filter((thread) => thread.category === selectedCategory));
+    dispatch(receiveFilteredCategoriesActionCreator(result));
     setActiveCategory(selectedCategory);
   };
 
-  const onClearCategory = () => {
-    setFilteredCategories(null);
+  const setActiveCategory = (category) => {
+    dispatch(setActiveCategoryActionCreator(category));
+  };
+
+  const clearActiveCategory = () => {
+    dispatch(clearActiveCategoryActionCreator(''));
   };
 
   return (
@@ -57,18 +63,17 @@ function HomePage() {
         <CategoriesList
           threads={threadsList}
           clickCategory={onFilterCategory}
-          clearCategory={onClearCategory}
-          activeCategory={activeCategory}
-          setActiveCategory={setActiveCategory}
+          clearCategory={clearActiveCategory}
+          activeCategory={categories.activeCategory}
         />
       </div>
       <div className="home-page-body">
         <h2>Threads</h2>
-        {filteredCategories
+        {categories.filteredCategories
           ? (
             <ThreadsList
               threads={
-                filteredCategories.map((thread) => ({
+                categories.filteredCategories.map((thread) => ({
                   ...thread,
                   user: users.find((user) => user.id === thread.ownerId),
                   authUser: authUser.id,

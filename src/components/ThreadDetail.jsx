@@ -14,30 +14,17 @@ function ThreadDetail({
 
   const onLikeClick = (event) => {
     event.stopPropagation();
-    if (isDetailThreadLiked) {
-      neutralize();
-    } else {
-      like();
-    }
-
-    if (isDetailThreadDisliked) {
-      neutralize();
-      like();
-    }
+    like();
   };
 
   const onDislikeClick = (event) => {
     event.stopPropagation();
-    if (isDetailThreadDisliked) {
-      neutralize();
-    } else {
-      dislike();
-    }
+    dislike();
+  };
 
-    if (isDetailThreadLiked) {
-      neutralize();
-      dislike();
-    }
+  const onNeutralize = (event) => {
+    event.stopPropagation();
+    neutralize();
   };
 
   return (
@@ -50,28 +37,32 @@ function ThreadDetail({
       <div className="thread-action">
         <div className="thread-action-buttons">
           <div className="thread-action-button">
-            {
-              like && (
-              <>
-                <button type="button" aria-label="like" onClick={onLikeClick}>
-                  { isDetailThreadLiked ? <AiFillLike className="icon" style={{ color: '#5b68fe' }} /> : <AiOutlineLike className="icon" /> }
+            { isDetailThreadLiked
+              ? (
+                <button type="button" aria-label="like" onClick={onNeutralize}>
+                  <AiFillLike className="icon" style={{ color: '#5b68fe' }} />
                 </button>
-                <p>{upVotesBy.length}</p>
-              </>
               )
-            }
+              : (
+                <button type="button" aria-label="like" onClick={onLikeClick}>
+                  <AiOutlineLike className="icon" />
+                </button>
+              )}
+            <p>{upVotesBy.length}</p>
           </div>
           <div className="thread-action-button">
-            {
-              dislike && (
-              <>
-                <button type="button" aria-label="dislike" onClick={onDislikeClick}>
-                  { isDetailThreadDisliked ? <AiFillDislike className="icon" style={{ color: '#5b68fe' }} /> : <AiOutlineDislike className="icon" /> }
+            { isDetailThreadDisliked
+              ? (
+                <button type="button" aria-label="like" onClick={onNeutralize}>
+                  <AiFillDislike className="icon" style={{ color: '#5b68fe' }} />
                 </button>
-                <p>{downVotesBy.length}</p>
-              </>
               )
-            }
+              : (
+                <button type="button" aria-label="like" onClick={onDislikeClick}>
+                  <AiOutlineDislike className="icon" />
+                </button>
+              )}
+            <p>{downVotesBy.length}</p>
           </div>
         </div>
         <div className="thread-action-created-and-date">

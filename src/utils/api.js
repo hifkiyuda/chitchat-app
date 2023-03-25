@@ -199,7 +199,7 @@ const api = (() => {
     return leaderboards;
   }
 
-  async function toggleLikeThread(threadId) {
+  async function likeThread(threadId) {
     const response = await _fetchWithAuth(`${BASE_URL}/threads/${threadId}/up-vote`, {
       method: 'POST',
       headers: {
@@ -216,7 +216,7 @@ const api = (() => {
     }
   }
 
-  async function toggleDislikeThread(threadId) {
+  async function dislikeThread(threadId) {
     const response = await _fetchWithAuth(`${BASE_URL}/threads/${threadId}/down-vote`, {
       method: 'POST',
       headers: {
@@ -233,7 +233,7 @@ const api = (() => {
     }
   }
 
-  async function toggleNeutralizeThread(threadId) {
+  async function neutralizeThread(threadId) {
     const response = await _fetchWithAuth(`${BASE_URL}/threads/${threadId}/neutral-vote`, {
       method: 'POST',
       headers: {
@@ -250,7 +250,7 @@ const api = (() => {
     }
   }
 
-  async function toggleLikeComment(threadId, commentId) {
+  async function likeComment(threadId, commentId) {
     const response = await _fetchWithAuth(`${BASE_URL}/threads/${threadId}/comments/${commentId}/up-vote`, {
       method: 'POST',
       headers: {
@@ -267,7 +267,7 @@ const api = (() => {
     }
   }
 
-  async function toggleDislikeComment(threadId, commentId) {
+  async function dislikeComment(threadId, commentId) {
     const response = await _fetchWithAuth(`${BASE_URL}/threads/${threadId}/comments/${commentId}/down-vote`, {
       method: 'POST',
       headers: {
@@ -284,7 +284,7 @@ const api = (() => {
     }
   }
 
-  async function toggleNeutralizeComment(threadId, commentId) {
+  async function neutralizeComment(threadId, commentId) {
     const response = await _fetchWithAuth(`${BASE_URL}/threads/${threadId}/comments/${commentId}/neutral-vote`, {
       method: 'POST',
       headers: {
@@ -313,12 +313,12 @@ const api = (() => {
     createThread,
     createComment,
     getLeaderboards,
-    toggleLikeThread,
-    toggleDislikeThread,
-    toggleNeutralizeThread,
-    toggleLikeComment,
-    toggleDislikeComment,
-    toggleNeutralizeComment,
+    likeThread,
+    dislikeThread,
+    neutralizeThread,
+    likeComment,
+    dislikeComment,
+    neutralizeComment,
   };
 })();
 

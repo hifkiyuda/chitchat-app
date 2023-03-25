@@ -4,7 +4,7 @@ function threadsReducer(threads = [], action = {}) {
   switch (action.type) {
     case ActionType.RECEIVE_THREADS: return action.payload.threads;
     case ActionType.CREATE_THREAD: return [action.payload.thread, ...threads];
-    case ActionType.TOGGLE_LIKE_THREAD:
+    case ActionType.LIKE_THREAD:
       return threads.map((thread) => {
         if (thread.id === action.payload.threadId) {
           return {
@@ -16,7 +16,7 @@ function threadsReducer(threads = [], action = {}) {
         }
         return thread;
       });
-    case ActionType.TOGGLE_DISLIKE_THREAD:
+    case ActionType.DISLIKE_THREAD:
       return threads.map((thread) => {
         if (thread.id === action.payload.threadId) {
           return {
@@ -28,7 +28,7 @@ function threadsReducer(threads = [], action = {}) {
         }
         return thread;
       });
-    case ActionType.TOGGLE_NEUTRALIZE_THREAD:
+    case ActionType.NEUTRALIZE_THREAD:
       return threads.map((thread) => {
         if (thread.id === action.payload.threadId) {
           return {

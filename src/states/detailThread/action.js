@@ -5,12 +5,12 @@ const ActionType = {
   RECEIVE_DETAIL_THREAD: 'RECEIVE_DETAIL_THREAD',
   CLEAR_DETAIL_THREAD: 'CLEAR_DETAIL_THREAD',
   CREATE_COMMENT: 'CREATE_COMMENT',
-  TOGGLE_LIKE_DETAIL_THREAD: 'TOGGLE_LIKE_DETAIL_THREAD',
-  TOGGLE_DISLIKE_DETAIL_THREAD: 'TOGGLE_DISLIKE_DETAIL_THREAD',
-  TOGGLE_NEUTRALIZE_DETAIL_THREAD: 'TOGGLE_NEUTRALIZE_DETAIL_THREAD',
-  TOGGLE_LIKE_COMMENT: 'TOGGLE_LIKE_COMMENT',
-  TOGGLE_DISLIKE_COMMENT: 'TOGGLE_DISLIKE_COMMENT',
-  TOGGLE_NEUTRALIZE_COMMENT: 'TOGGLE_NEUTRALIZE_COMMENT',
+  LIKE_DETAIL_THREAD: 'LIKE_DETAIL_THREAD',
+  DISLIKE_DETAIL_THREAD: 'DISLIKE_DETAIL_THREAD',
+  NEUTRALIZE_DETAIL_THREAD: 'NEUTRALIZE_DETAIL_THREAD',
+  LIKE_COMMENT: 'LIKE_COMMENT',
+  DISLIKE_COMMENT: 'DISLIKE_COMMENT',
+  NEUTRALIZE_COMMENT: 'NEUTRALIZE_COMMENT',
 };
 
 function receiveDetailThreadActionCreator(detailThread) {
@@ -38,9 +38,9 @@ function createCommentActionCreator(threadId, content) {
   };
 }
 
-function toggleLikeDetailThreadActionCreator({ threadId, userId }) {
+function likeDetailThreadActionCreator({ threadId, userId }) {
   return {
-    type: ActionType.TOGGLE_LIKE_DETAIL_THREAD,
+    type: ActionType.LIKE_DETAIL_THREAD,
     payload: {
       threadId,
       userId,
@@ -48,9 +48,9 @@ function toggleLikeDetailThreadActionCreator({ threadId, userId }) {
   };
 }
 
-function toggleDislikeDetailThreadActionCreator({ threadId, userId }) {
+function dislikeDetailThreadActionCreator({ threadId, userId }) {
   return {
-    type: ActionType.TOGGLE_DISLIKE_DETAIL_THREAD,
+    type: ActionType.DISLIKE_DETAIL_THREAD,
     payload: {
       threadId,
       userId,
@@ -58,9 +58,9 @@ function toggleDislikeDetailThreadActionCreator({ threadId, userId }) {
   };
 }
 
-function toggleNeutralizeDetailThreadActionCreator({ threadId, userId }) {
+function neutralizeDetailThreadActionCreator({ threadId, userId }) {
   return {
-    type: ActionType.TOGGLE_NEUTRALIZE_DETAIL_THREAD,
+    type: ActionType.NEUTRALIZE_DETAIL_THREAD,
     payload: {
       threadId,
       userId,
@@ -68,9 +68,9 @@ function toggleNeutralizeDetailThreadActionCreator({ threadId, userId }) {
   };
 }
 
-function toggleLikeCommentActionCreator({ commentId, userId }) {
+function likeCommentActionCreator({ commentId, userId }) {
   return {
-    type: ActionType.TOGGLE_LIKE_COMMENT,
+    type: ActionType.LIKE_COMMENT,
     payload: {
       commentId,
       userId,
@@ -78,9 +78,9 @@ function toggleLikeCommentActionCreator({ commentId, userId }) {
   };
 }
 
-function toggleDislikeCommentActionCreator({ commentId, userId }) {
+function dislikeCommentActionCreator({ commentId, userId }) {
   return {
-    type: ActionType.TOGGLE_DISLIKE_COMMENT,
+    type: ActionType.DISLIKE_COMMENT,
     payload: {
       commentId,
       userId,
@@ -88,9 +88,9 @@ function toggleDislikeCommentActionCreator({ commentId, userId }) {
   };
 }
 
-function toggleNeutralizeCommentActionCreator({ commentId, userId }) {
+function neutralizeCommentActionCreator({ commentId, userId }) {
   return {
-    type: ActionType.TOGGLE_NEUTRALIZE_COMMENT,
+    type: ActionType.NEUTRALIZE_COMMENT,
     payload: {
       commentId,
       userId,
@@ -128,86 +128,90 @@ function asyncCreateComment(threadId, content) {
   };
 }
 
-function asyncToogleLikeDetailThread() {
+function asyncLikeDetailThread() {
   return async (dispatch, getState) => {
     const { authUser, detailThread } = getState();
-    dispatch(toggleLikeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
+    dispatch(neutralizeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
+    dispatch(likeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
 
     try {
-      await api.toggleLikeThread(detailThread.id);
+      await api.likeThread(detailThread.id);
     } catch (error) {
       alert(error.message);
-      dispatch(toggleLikeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
+      dispatch(likeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
     }
   };
 }
 
-function asyncToogleDislikeDetailThread() {
+function asyncDislikeDetailThread() {
   return async (dispatch, getState) => {
     const { authUser, detailThread } = getState();
-    dispatch(toggleDislikeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
+    dispatch(neutralizeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
+    dispatch(dislikeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
 
     try {
-      await api.toggleDislikeThread(detailThread.id);
+      await api.dislikeThread(detailThread.id);
     } catch (error) {
       alert(error.message);
-      dispatch(toggleDislikeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
+      dispatch(dislikeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
     }
   };
 }
 
-function asyncToogleNeutralizeDetailThread() {
+function asyncNeutralizeDetailThread() {
   return async (dispatch, getState) => {
     const { authUser, detailThread } = getState();
-    dispatch(toggleNeutralizeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
+    dispatch(neutralizeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
 
     try {
-      await api.toggleNeutralizeThread(detailThread.id);
+      await api.neutralizeThread(detailThread.id);
     } catch (error) {
       alert(error.message);
-      dispatch(toggleNeutralizeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
+      dispatch(neutralizeDetailThreadActionCreator({ threadId: detailThread.id, userId: authUser.id }));
     }
   };
 }
 
-function asyncToogleLikeComment(commentId) {
+function asyncLikeComment(commentId) {
   return async (dispatch, getState) => {
     const { authUser, detailThread } = getState();
-    dispatch(toggleLikeCommentActionCreator({ commentId, userId: authUser.id }));
+    dispatch(neutralizeCommentActionCreator({ commentId, userId: authUser.id }));
+    dispatch(likeCommentActionCreator({ commentId, userId: authUser.id }));
 
     try {
-      await api.toggleLikeComment(detailThread.id, commentId);
+      await api.likeComment(detailThread.id, commentId);
     } catch (error) {
       alert(error.message);
-      dispatch(toggleLikeCommentActionCreator({ commentId, userId: authUser.id }));
+      dispatch(likeCommentActionCreator({ commentId, userId: authUser.id }));
     }
   };
 }
 
-function asyncToogleDislikeComment(commentId) {
+function asyncDislikeComment(commentId) {
   return async (dispatch, getState) => {
     const { authUser, detailThread } = getState();
-    dispatch(toggleDislikeCommentActionCreator({ commentId, userId: authUser.id }));
+    dispatch(neutralizeCommentActionCreator({ commentId, userId: authUser.id }));
+    dispatch(dislikeCommentActionCreator({ commentId, userId: authUser.id }));
 
     try {
-      await api.toggleDislikeComment(detailThread.id, commentId);
+      await api.dislikeComment(detailThread.id, commentId);
     } catch (error) {
       alert(error.message);
-      dispatch(toggleLikeCommentActionCreator({ commentId, userId: authUser.id }));
+      dispatch(likeCommentActionCreator({ commentId, userId: authUser.id }));
     }
   };
 }
 
-function asyncToogleNeutralizeComment(commentId) {
+function asyncNeutralizeComment(commentId) {
   return async (dispatch, getState) => {
     const { authUser, detailThread } = getState();
-    dispatch(toggleNeutralizeCommentActionCreator({ commentId, userId: authUser.id }));
+    dispatch(neutralizeCommentActionCreator({ commentId, userId: authUser.id }));
 
     try {
-      await api.toggleNeutralizeComment(detailThread.id, commentId);
+      await api.neutralizeComment(detailThread.id, commentId);
     } catch (error) {
       alert(error.message);
-      dispatch(toggleNeutralizeCommentActionCreator({ commentId, userId: authUser.id }));
+      dispatch(neutralizeCommentActionCreator({ commentId, userId: authUser.id }));
     }
   };
 }
@@ -219,16 +223,16 @@ export {
   clearDetailThreadActionCreator,
   asyncReceiveDetailThread,
   asyncCreateComment,
-  toggleLikeDetailThreadActionCreator,
-  toggleDislikeDetailThreadActionCreator,
-  toggleNeutralizeDetailThreadActionCreator,
-  asyncToogleLikeDetailThread,
-  asyncToogleDislikeDetailThread,
-  asyncToogleNeutralizeDetailThread,
-  toggleLikeCommentActionCreator,
-  toggleDislikeCommentActionCreator,
-  toggleNeutralizeCommentActionCreator,
-  asyncToogleLikeComment,
-  asyncToogleDislikeComment,
-  asyncToogleNeutralizeComment,
+  likeDetailThreadActionCreator,
+  dislikeDetailThreadActionCreator,
+  neutralizeDetailThreadActionCreator,
+  asyncLikeDetailThread,
+  asyncDislikeDetailThread,
+  asyncNeutralizeDetailThread,
+  likeCommentActionCreator,
+  dislikeCommentActionCreator,
+  neutralizeCommentActionCreator,
+  asyncLikeComment,
+  asyncDislikeComment,
+  asyncNeutralizeComment,
 };

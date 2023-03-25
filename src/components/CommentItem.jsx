@@ -14,30 +14,17 @@ function CommentItem({
 
   const onLikeClick = (event) => {
     event.stopPropagation();
-    if (isCommentLiked) {
-      neutralize(id);
-    } else {
-      like(id);
-    }
-
-    if (isCommentDisliked) {
-      neutralize(id);
-      like(id);
-    }
+    like(id);
   };
 
   const onDislikeClick = (event) => {
     event.stopPropagation();
-    if (isCommentDisliked) {
-      neutralize(id);
-    } else {
-      dislike(id);
-    }
+    dislike(id);
+  };
 
-    if (isCommentLiked) {
-      neutralize(id);
-      dislike(id);
-    }
+  const onNeutralize = (event) => {
+    event.stopPropagation();
+    neutralize(id);
   };
 
   return (
@@ -49,28 +36,32 @@ function CommentItem({
       <div className="comment-content">{parser(content)}</div>
       <div className="comment-action">
         <div className="comment-action-button">
-          {
-            like && (
-            <>
-              <button type="button" aria-label="like" onClick={onLikeClick}>
-                { isCommentLiked ? <AiFillLike className="icon" style={{ color: '#5b68fe' }} /> : <AiOutlineLike className="icon" /> }
+          { isCommentLiked
+            ? (
+              <button type="button" aria-label="like" onClick={onNeutralize}>
+                <AiFillLike className="icon" style={{ color: '#5b68fe' }} />
               </button>
-              <p>{upVotesBy.length}</p>
-            </>
             )
-          }
+            : (
+              <button type="button" aria-label="like" onClick={onLikeClick}>
+                <AiOutlineLike className="icon" />
+              </button>
+            )}
+          <p>{upVotesBy.length}</p>
         </div>
         <div className="comment-action-button">
-          {
-            dislike && (
-            <>
-              <button type="button" aria-label="like" onClick={onDislikeClick}>
-                { isCommentDisliked ? <AiFillDislike className="icon" style={{ color: '#5b68fe' }} /> : <AiOutlineDislike className="icon" /> }
+          { isCommentDisliked
+            ? (
+              <button type="button" aria-label="like" onClick={onNeutralize}>
+                <AiFillDislike className="icon" style={{ color: '#5b68fe' }} />
               </button>
-              <p>{downVotesBy.length}</p>
-            </>
             )
-          }
+            : (
+              <button type="button" aria-label="like" onClick={onDislikeClick}>
+                <AiOutlineDislike className="icon" />
+              </button>
+            )}
+          <p>{downVotesBy.length}</p>
         </div>
         <p className="comment-action-date">{postedAt(createdAt)}</p>
       </div>

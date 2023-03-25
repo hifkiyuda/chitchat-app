@@ -4,9 +4,9 @@ import api from '../../utils/api';
 const ActionType = {
   RECEIVE_THREADS: 'RECEIVE_THREADS',
   CREATE_THREAD: 'CREATE_THREAD',
-  TOGGLE_LIKE_THREAD: 'TOGGLE_LIKE_THREAD',
-  TOGGLE_DISLIKE_THREAD: 'TOGGLE_DISLIKE_THREAD',
-  TOGGLE_NEUTRALIZE_THREAD: 'TOGGLE_NEUTRALIZE_THREAD',
+  LIKE_THREAD: 'LIKE_THREAD',
+  DISLIKE_THREAD: 'DISLIKE_THREAD',
+  NEUTRALIZE_THREAD: 'NEUTRALIZE_THREAD',
 };
 
 function receiveThreadsActionCreator(threads) {
@@ -27,9 +27,9 @@ function createThreadActionCreator(thread) {
   };
 }
 
-function toggleLikeThreadActionCreator({ threadId, userId }) {
+function likeThreadActionCreator({ threadId, userId }) {
   return {
-    type: ActionType.TOGGLE_LIKE_THREAD,
+    type: ActionType.LIKE_THREAD,
     payload: {
       threadId,
       userId,
@@ -37,9 +37,9 @@ function toggleLikeThreadActionCreator({ threadId, userId }) {
   };
 }
 
-function toggleDislikeThreadActionCreator({ threadId, userId }) {
+function dislikeThreadActionCreator({ threadId, userId }) {
   return {
-    type: ActionType.TOGGLE_DISLIKE_THREAD,
+    type: ActionType.DISLIKE_THREAD,
     payload: {
       threadId,
       userId,
@@ -47,9 +47,9 @@ function toggleDislikeThreadActionCreator({ threadId, userId }) {
   };
 }
 
-function toggleNeutralizeThreadActionCreator({ threadId, userId }) {
+function neutralizeThreadActionCreator({ threadId, userId }) {
   return {
-    type: ActionType.TOGGLE_NEUTRALIZE_THREAD,
+    type: ActionType.NEUTRALIZE_THREAD,
     payload: {
       threadId,
       userId,
@@ -72,44 +72,46 @@ function asyncCreateThread({ thread }) {
   };
 }
 
-function asyncToogleLikeThread(threadId) {
+function asyncLikeThread(threadId) {
   return async (dispatch, getState) => {
     const { authUser } = getState();
-    dispatch(toggleLikeThreadActionCreator({ threadId, userId: authUser.id }));
+    dispatch(neutralizeThreadActionCreator({ threadId, userId: authUser.id }));
+    dispatch(likeThreadActionCreator({ threadId, userId: authUser.id }));
 
     try {
-      await api.toggleLikeThread(threadId);
+      await api.likeThread(threadId);
     } catch (error) {
       alert(error.message);
-      dispatch(toggleLikeThreadActionCreator({ threadId, userId: authUser.id }));
+      dispatch(likeThreadActionCreator({ threadId, userId: authUser.id }));
     }
   };
 }
 
-function asyncToogleDislikeThread(threadId) {
+function asyncDislikeThread(threadId) {
   return async (dispatch, getState) => {
     const { authUser } = getState();
-    dispatch(toggleDislikeThreadActionCreator({ threadId, userId: authUser.id }));
+    dispatch(neutralizeThreadActionCreator({ threadId, userId: authUser.id }));
+    dispatch(dislikeThreadActionCreator({ threadId, userId: authUser.id }));
 
     try {
-      await api.toggleDislikeThread(threadId);
+      await api.dislikeThread(threadId);
     } catch (error) {
       alert(error.message);
-      dispatch(toggleDislikeThreadActionCreator({ threadId, userId: authUser.id }));
+      dispatch(dislikeThreadActionCreator({ threadId, userId: authUser.id }));
     }
   };
 }
 
-function asyncToogleNeutralizeThread(threadId) {
+function asyncNeutralizeThread(threadId) {
   return async (dispatch, getState) => {
     const { authUser } = getState();
-    dispatch(toggleNeutralizeThreadActionCreator({ threadId, userId: authUser.id }));
+    dispatch(neutralizeThreadActionCreator({ threadId, userId: authUser.id }));
 
     try {
-      await api.toggleNeutralizeThread(threadId);
+      await api.neutralizeThread(threadId);
     } catch (error) {
       alert(error.message);
-      dispatch(toggleNeutralizeThreadActionCreator({ threadId, userId: authUser.id }));
+      dispatch(neutralizeThreadActionCreator({ threadId, userId: authUser.id }));
     }
   };
 }
@@ -119,10 +121,10 @@ export {
   receiveThreadsActionCreator,
   createThreadActionCreator,
   asyncCreateThread,
-  toggleLikeThreadActionCreator,
-  asyncToogleLikeThread,
-  toggleDislikeThreadActionCreator,
-  asyncToogleDislikeThread,
-  toggleNeutralizeThreadActionCreator,
-  asyncToogleNeutralizeThread,
+  likeThreadActionCreator,
+  asyncLikeThread,
+  dislikeThreadActionCreator,
+  asyncDislikeThread,
+  neutralizeThreadActionCreator,
+  asyncNeutralizeThread,
 };

@@ -5,7 +5,7 @@ import CommentsList from '../components/CommentsList';
 import ThreadCommentInput from '../components/ThreadCommentInput';
 import ThreadDetail from '../components/ThreadDetail';
 import {
-  asyncReceiveDetailThread, asyncCreateComment, asyncToogleLikeComment, asyncToogleDislikeComment, asyncToogleNeutralizeComment, asyncToogleNeutralizeDetailThread, asyncToogleDislikeDetailThread, asyncToogleLikeDetailThread,
+  asyncReceiveDetailThread, asyncCreateComment, asyncLikeComment, asyncDislikeComment, asyncNeutralizeComment, asyncNeutralizeDetailThread, asyncDislikeDetailThread, asyncLikeDetailThread,
 } from '../states/detailThread/action';
 
 function DetailPage() {
@@ -26,27 +26,27 @@ function DetailPage() {
   };
 
   const onLikeDetailThread = () => {
-    dispatch(asyncToogleLikeDetailThread());
+    dispatch(asyncLikeDetailThread());
   };
 
   const onDislikeDetailThread = () => {
-    dispatch(asyncToogleDislikeDetailThread());
+    dispatch(asyncDislikeDetailThread());
   };
 
   const onNeutralizeDetailThread = () => {
-    dispatch(asyncToogleNeutralizeDetailThread());
+    dispatch(asyncNeutralizeDetailThread());
   };
 
   const onLikeComment = (id) => {
-    dispatch(asyncToogleLikeComment(id));
+    dispatch(asyncLikeComment(id));
   };
 
   const onDislikeComment = (id) => {
-    dispatch(asyncToogleDislikeComment(id));
+    dispatch(asyncDislikeComment(id));
   };
 
   const onNeutralizeComment = (id) => {
-    dispatch(asyncToogleNeutralizeComment(id));
+    dispatch(asyncNeutralizeComment(id));
   };
 
   if (!detailThread) {

@@ -2,18 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function CategoryItem({
-  category, clickCategory, clearCategory, activeCategory, setActiveCategory,
+  category, clickCategory, clearCategory, activeCategory,
 }) {
   const onCategoryClick = (event) => {
     event.stopPropagation();
 
     if (activeCategory === category) {
-      if (activeCategory !== category) {
-        clickCategory(category);
-      }
-
       clearCategory();
-      setActiveCategory('');
     } else {
       clickCategory(category);
     }
@@ -29,7 +24,6 @@ CategoryItem.propTypes = {
   clickCategory: PropTypes.func.isRequired,
   clearCategory: PropTypes.func.isRequired,
   activeCategory: PropTypes.string,
-  setActiveCategory: PropTypes.func,
 };
 
 export default CategoryItem;

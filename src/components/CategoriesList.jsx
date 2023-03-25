@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import CategoryItem from './CategoryItem';
 
 function CategoriesList({
-  threads, clickCategory, clearCategory, activeCategory, setActiveCategory,
+  threads, clickCategory, clearCategory, activeCategory,
 }) {
-  const categories = threads.map((thread) => thread.category);
-  const newCategories = categories.filter((item, index) => categories.indexOf(item) === index);
+  const mappedCategories = threads.map((thread) => thread.category);
+  const newCategories = [...new Set(mappedCategories)];
 
   return (
     <div className="categories">
       {
         newCategories.map((category) => (
-          <CategoryItem key={category} category={category} clickCategory={clickCategory} clearCategory={clearCategory} activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
+          <CategoryItem key={category} category={category} clickCategory={clickCategory} clearCategory={clearCategory} activeCategory={activeCategory} />
         ))
       }
     </div>
@@ -24,7 +24,6 @@ CategoriesList.propTypes = {
   clickCategory: PropTypes.func.isRequired,
   clearCategory: PropTypes.func.isRequired,
   activeCategory: PropTypes.string,
-  setActiveCategory: PropTypes.func,
 };
 
 export default CategoriesList;
