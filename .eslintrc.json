@@ -28,6 +28,8 @@
         "react/require-default-props": "off",
         "react/forbid-prop-types": "off",
         "max-len": "off",
-        "no-shadow": "off"
+        "no-shadow": "off",
+        "no-underscore-dangle": "off",
+        "no-use-before-define": "off"
     }
 }

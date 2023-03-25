@@ -95,10 +95,10 @@ ThreadDetail.propTypes = {
   downVotesBy: PropTypes.arrayOf(PropTypes.string),
   createdAt: PropTypes.string.isRequired,
   owner: PropTypes.object.isRequired,
+  authUser: PropTypes.string.isRequired,
   like: PropTypes.func,
   dislike: PropTypes.func,
   neutralize: PropTypes.func,
-  authUser: PropTypes.string.isRequired,
 };
 
 export default ThreadDetail;

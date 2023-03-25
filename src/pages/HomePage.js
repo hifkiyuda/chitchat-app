@@ -8,8 +8,8 @@ import { asyncPopulateUsersAndThreads } from '../states/shared/action';
 import { asyncToogleDislikeThread, asyncToogleLikeThread, asyncToogleNeutralizeThread } from '../states/threads/action';
 
 function HomePage() {
-  const [filteredCategories, setFilteredCategories] = useState('');
-  const [showAllThreads, setShowAllThreads] = useState(false);
+  const [filteredCategories, setFilteredCategories] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('');
 
   const {
     threads = [],
@@ -41,24 +41,26 @@ function HomePage() {
     authUser: authUser.id,
   }));
 
-  const mappedThreads = threads.map((thread) => thread);
-
   const onFilterCategory = (selectedCategory) => {
-    if (showAllThreads) {
-      setFilteredCategories(mappedThreads);
-      setShowAllThreads(false);
-    } else {
-      const result = mappedThreads.filter((thread) => thread.category === selectedCategory);
-      setFilteredCategories(result);
-      setShowAllThreads(true);
-    }
+    setFilteredCategories(threads.filter((thread) => thread.category === selectedCategory));
+    setActiveCategory(selectedCategory);
+  };
+
+  const onClearCategory = () => {
+    setFilteredCategories(null);
   };
 
   return (
     <section className="home-page">
       <div className="home-page-popular-category">
         <h2 className="category-header">Popular Category</h2>
-        <CategoriesList threads={threadsList} clickCategory={onFilterCategory} />
+        <CategoriesList
+          threads={threadsList}
+          clickCategory={onFilterCategory}
+          clearCategory={onClearCategory}
+          activeCategory={activeCategory}
+          setActiveCategory={setActiveCategory}
+        />
       </div>
       <div className="home-page-body">
         <h2>Threads</h2>
