@@ -9,15 +9,13 @@ function detailThreadReducer(detailThread = null, action = {}) {
     case ActionType.CREATE_COMMENT:
       return {
         ...detailThread,
-        comments: detailThread.comments.includes(action.payload.threadId) ? detailThread.comments.filter((id) => id !== action.payload.threadId) : detailThread.comments.concat([action.payload.threadId]),
+        comments: [action.payload.comment, ...detailThread.comments],
       };
     case ActionType.LIKE_DETAIL_THREAD:
       if (detailThread.id === action.payload.threadId) {
         return {
           ...detailThread,
-          upVotesBy: detailThread.upVotesBy.includes(action.payload.userId)
-            ? detailThread.upVotesBy.filter((id) => id !== action.payload.userId)
-            : detailThread.upVotesBy.concat([action.payload.userId]),
+          upVotesBy: detailThread.upVotesBy.concat([action.payload.userId]),
         };
       }
       return detailThread;
@@ -25,9 +23,7 @@ function detailThreadReducer(detailThread = null, action = {}) {
       if (detailThread.id === action.payload.threadId) {
         return {
           ...detailThread,
-          downVotesBy: detailThread.downVotesBy.includes(action.payload.userId)
-            ? detailThread.downVotesBy.filter((id) => id !== action.payload.userId)
-            : detailThread.downVotesBy.concat([action.payload.userId]),
+          downVotesBy: detailThread.downVotesBy.concat([action.payload.userId]),
         };
       }
       return detailThread;
@@ -44,7 +40,7 @@ function detailThreadReducer(detailThread = null, action = {}) {
           if (comment.id === action.payload.commentId) {
             return {
               ...comment,
-              upVotesBy: comment.upVotesBy.includes(action.payload.userId) ? comment.upVotesBy.filter((id) => id !== action.payload.userId) : comment.upVotesBy.concat([action.payload.userId]),
+              upVotesBy: comment.upVotesBy.concat([action.payload.userId]),
             };
           }
           return comment;
@@ -57,7 +53,7 @@ function detailThreadReducer(detailThread = null, action = {}) {
           if (comment.id === action.payload.commentId) {
             return {
               ...comment,
-              downVotesBy: comment.downVotesBy.includes(action.payload.userId) ? comment.downVotesBy.filter((id) => id !== action.payload.userId) : comment.downVotesBy.concat([action.payload.userId]),
+              downVotesBy: comment.downVotesBy.concat([action.payload.userId]),
             };
           }
           return comment;

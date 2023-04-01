@@ -1,16 +1,5 @@
 import { ActionType } from './action';
 
-// function categoriesReducer(filteredCategories = null, action = {}) {
-//   switch (action.type) {
-//     case ActionType.RECEIVE_FILTERED_CATEGORIES:
-//       return action.payload.filteredCategories;
-//     case ActionType.CLEAR_FILTERED_CATEGORIES:
-//       return null;
-//     default:
-//       return filteredCategories;
-//   }
-// }
-
 function categoriesReducer(categories = { filteredCategories: null, activeCategory: '' }, action = {}) {
   switch (action.type) {
     case ActionType.RECEIVE_FILTERED_CATEGORIES:
