@@ -39,6 +39,7 @@ function CreateThread({ createThread }) {
       />
       <div
         className="input-body"
+        data-testid="Body"
         data-placeholder="Fill the thread here"
         value={body}
         onInput={onBodyChange}

@@ -13,6 +13,20 @@
 
 import threadsReducer from './reducer';
 
+const initialStateDefault = [
+  {
+    id: 'thread-1',
+    title: 'Thread Pertama',
+    body: 'Ini adalah thread pertama',
+    category: 'General',
+    createdAt: '2021-06-21T07:00:00.000Z',
+    ownerId: 'users-1',
+    upVotesBy: [],
+    downVotesBy: [],
+    totalComments: 0,
+  },
+];
+
 describe('threadsReducer function', () => {
   it('should return the initial state when given by unknown action', () => {
     // arrange
@@ -57,19 +71,6 @@ describe('threadsReducer function', () => {
 
   it('should return the threads with the new thread when given by CREATE_THREAD action', () => {
     // arrange
-    const initialState = [
-      {
-        id: 'thread-1',
-        title: 'Thread Pertama',
-        body: 'Ini adalah thread pertama',
-        category: 'General',
-        createdAt: '2021-06-21T07:00:00.000Z',
-        ownerId: 'users-1',
-        upVotesBy: [],
-        downVotesBy: [],
-        totalComments: 0,
-      },
-    ];
     const action = {
       type: 'CREATE_THREAD',
       payload: {
@@ -88,27 +89,14 @@ describe('threadsReducer function', () => {
     };
 
     // action
-    const nextState = threadsReducer(initialState, action);
+    const nextState = threadsReducer(initialStateDefault, action);
 
     // assert
-    expect(nextState).toEqual([action.payload.thread, ...initialState]);
+    expect(nextState).toEqual([action.payload.thread, ...initialStateDefault]);
   });
 
   it('should return the threads with the toggled like thread when given by LIKE_THREAD action', () => {
     // arrange
-    const initialState = [
-      {
-        id: 'thread-1',
-        title: 'Thread Pertama',
-        body: 'Ini adalah thread pertama',
-        category: 'General',
-        createdAt: '2021-06-21T07:00:00.000Z',
-        ownerId: 'users-1',
-        upVotesBy: [],
-        downVotesBy: [],
-        totalComments: 0,
-      },
-    ];
     const action = {
       type: 'LIKE_THREAD',
       payload: {
@@ -118,12 +106,12 @@ describe('threadsReducer function', () => {
     };
 
     // action
-    const nextState = threadsReducer(initialState, action);
+    const nextState = threadsReducer(initialStateDefault, action);
 
     // assert
     expect(nextState).toEqual([
       {
-        ...initialState[0],
+        ...initialStateDefault[0],
         upVotesBy: [action.payload.userId],
       },
     ]);
@@ -131,19 +119,6 @@ describe('threadsReducer function', () => {
 
   it('should return the threads with the toggled dislike thread when given by DISLIKE_THREAD action', () => {
     // arrange
-    const initialState = [
-      {
-        id: 'thread-1',
-        title: 'Thread Pertama',
-        body: 'Ini adalah thread pertama',
-        category: 'General',
-        createdAt: '2021-06-21T07:00:00.000Z',
-        ownerId: 'users-1',
-        upVotesBy: [],
-        downVotesBy: [],
-        totalComments: 0,
-      },
-    ];
     const action = {
       type: 'DISLIKE_THREAD',
       payload: {
@@ -153,12 +128,12 @@ describe('threadsReducer function', () => {
     };
 
     // action
-    const nextState = threadsReducer(initialState, action);
+    const nextState = threadsReducer(initialStateDefault, action);
 
     // assert
     expect(nextState).toEqual([
       {
-        ...initialState[0],
+        ...initialStateDefault[0],
         downVotesBy: [action.payload.userId],
       },
     ]);
@@ -166,19 +141,6 @@ describe('threadsReducer function', () => {
 
   it('should return the threads with the toggled dislike thread when given by NEUTRALIZE_THREAD action', () => {
     // arrange
-    const initialState = [
-      {
-        id: 'thread-1',
-        title: 'Thread Pertama',
-        body: 'Ini adalah thread pertama',
-        category: 'General',
-        createdAt: '2021-06-21T07:00:00.000Z',
-        ownerId: 'users-1',
-        upVotesBy: [],
-        downVotesBy: [],
-        totalComments: 0,
-      },
-    ];
     const action = {
       type: 'NEUTRALIZE_THREAD',
       payload: {
@@ -188,23 +150,23 @@ describe('threadsReducer function', () => {
     };
 
     // action: neutralize like
-    const nextStateLike = threadsReducer(initialState, action);
+    const nextStateLike = threadsReducer(initialStateDefault, action);
 
     // assert
     expect(nextStateLike).toEqual([
       {
-        ...initialState[0],
+        ...initialStateDefault[0],
         upVotesBy: [],
       },
     ]);
 
     // action: neutralize dislike
-    const nextStateDislike = threadsReducer(initialState, action);
+    const nextStateDislike = threadsReducer(initialStateDefault, action);
 
     // assert
     expect(nextStateDislike).toEqual([
       {
-        ...initialState[0],
+        ...initialStateDefault[0],
         downVotesBy: [],
       },
     ]);

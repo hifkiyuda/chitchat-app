@@ -8,21 +8,16 @@ function ThreadCommentInput({ createComment }) {
     setContent(event.target.innerHTML);
   };
 
-  const createCommentSumbitHandler = (event) => {
-    event.preventDefault();
-
-    createComment(content);
-  };
-
   return (
     <div className="thread-comment-input">
       <div
+        data-testid="Comment"
         value={content}
         onInput={onContentChange}
         className="input-body"
         contentEditable
       />
-      <button type="submit" className="comment-button" onClick={createCommentSumbitHandler}>Reply</button>
+      <button type="button" className="comment-button" onClick={() => createComment(content)}>Reply</button>
     </div>
   );
 }
