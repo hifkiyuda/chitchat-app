@@ -123,7 +123,7 @@
 @media screen and (max-width: 360px) {
   .app-header {
     flex-direction: column;
-    border-bottom: 0.1px solid var(--list-item);
+    border-bottom: 0.1px solid var(--white);
   }
 
   .app-logo {

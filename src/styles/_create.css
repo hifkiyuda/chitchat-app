@@ -47,11 +47,11 @@
 
 .create-thread-form button {
   background-color: var(--light-blue);
-  color: var(--button-text);
+  color: var(--white);
   transition: all .3s ease-in;
   border: none;
 }
 
 .create-thread-form button:hover {
-  background-color: var(--dark-blue);
+  background-color: var(--blue);
 }

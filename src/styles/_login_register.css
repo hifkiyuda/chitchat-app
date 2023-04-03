@@ -48,5 +48,5 @@
 
 .login-input button:hover,
 .register-input button:hover {
-  background-color: var(--dark-blue);
+  background-color: var(--blue);
 }

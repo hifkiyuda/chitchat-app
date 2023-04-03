@@ -11,9 +11,6 @@ const theme = {
   colors: {
     black: 'var(--black)',
     white: 'var(--white)',
-    grey: 'var(--grey)',
-    lightBlue: 'var(--light-blue)',
-    darkBlue: 'var(--dark-blue)',
   },
 };
 
@@ -21,12 +18,12 @@ const root = createRoot(document.getElementById('root'));
 
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <StrictMode>
-        <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <StrictMode>
           <App />
-        </ThemeProvider>
-      </StrictMode>
-    </BrowserRouter>
+        </StrictMode>
+      </BrowserRouter>
+    </ThemeProvider>
   </Provider>,
 );

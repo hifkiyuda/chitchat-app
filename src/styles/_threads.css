@@ -33,7 +33,7 @@
 }
 
 .detail-link:hover {
-  color: var(--dark-blue);
+  color: var(--blue);
 }
 
 .thread-body .body-item {
@@ -110,7 +110,7 @@
 }
 
 .thread-comment-input .comment-button:hover {
-  background-color: var(--dark-blue);
+  background-color: var(--blue);
 }
 
 .thread-comment-input .input-body:focus {
