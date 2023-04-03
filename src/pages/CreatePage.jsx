@@ -17,7 +17,7 @@ function CreatePage() {
     <section className="create-page">
       <div className="create-page-body">
         <h2>Create New Thread</h2>
-        <p>This is your canvas, create some thread!</p>
+        <p>This is your canvas, make threads!</p>
         <CreateThread createThread={onCreateThread} />
       </div>
     </section>
