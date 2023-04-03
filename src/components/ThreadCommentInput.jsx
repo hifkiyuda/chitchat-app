@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Button from './styled/Button';
 
 function ThreadCommentInput({ createComment }) {
   const [content, setContent] = useState('');
@@ -18,7 +17,7 @@ function ThreadCommentInput({ createComment }) {
         className="input-body"
         contentEditable
       />
-      <Button type="button" backgroundColor="lightBlue" color="white" hoverBackgroundColor="darkBlue" onClick={() => createComment(content)}>Reply</Button>
+      <button type="button" className="comment-button" onClick={() => createComment(content)}>Reply</button>
     </div>
   );
 }

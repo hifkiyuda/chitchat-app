@@ -9,24 +9,11 @@
 
 :root {
   --black: #222222;
-  --button-background: #5b68fe;
-  --button-hover: #3939f1;
-  --button-text: #eeeeee;
-  --list-item: #eaeaea;
-  --list-text: #222222;
-  --comment-item: #eaeaea;
-  --category: #5b68fe;
-  --category-text: #eaeaea;
-  --category-box: #222222;
-
-  --black: #222222;
   --white: #eeeeee;
   --grey: #8d8d8d;
   --light-blue: #5b68fe;
   --dark-blue: #3939f1;
   --border-input: #8d8d8d;
-
-
 }
 
 * {

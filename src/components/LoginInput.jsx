@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import useInput from '../hooks/useInput';
-import Button from './styled/Button';
 
 function LoginInput({ login }) {
   const [email, onEmailChange] = useInput('');
@@ -11,7 +10,7 @@ function LoginInput({ login }) {
     <form className="login-input">
       <input type="email" value={email} onChange={onEmailChange} placeholder="Email" />
       <input type="password" value={password} onChange={onPasswordChange} placeholder="Password" />
-      <Button type="button" backgroundColor="lightBlue" color="white" hoverBackgroundColor="darkBlue" onClick={() => login({ email, password })}>Login</Button>
+      <button type="button" onClick={() => login({ email, password })}>Login</button>
     </form>
   );
 }

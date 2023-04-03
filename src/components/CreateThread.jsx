@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import useInput from '../hooks/useInput';
-import Button from './styled/Button';
 
 function CreateThread({ createThread }) {
   const [title, onTitleChange] = useInput('');
@@ -46,7 +45,7 @@ function CreateThread({ createThread }) {
         onInput={onBodyChange}
         contentEditable
       />
-      <Button type="submit" backgroundColor="lightBlue" color="white" hoverBackgroundColor="darkBlue">Create</Button>
+      <button type="submit">Create</button>
     </form>
   );
 }

@@ -24,7 +24,9 @@
 }
 
 .login-input input,
-.register-input input {
+.register-input input,
+.login-input button,
+.register-input button {
   padding: 15px;
   border-radius: 10px;
   font-size: 16px;
@@ -34,4 +36,17 @@
 .register-input input {
   margin-bottom: 10px;
   border: 1.5px solid var(--border-input);
+}
+
+.login-input button,
+.register-input button {
+  background-color: var(--light-blue);
+  color: var(--white);
+  transition: all .3s ease-in;
+  border: none;
+}
+
+.login-input button:hover,
+.register-input button:hover {
+  background-color: var(--dark-blue);
 }

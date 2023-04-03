@@ -54,9 +54,20 @@
 .thread-action-buttons,
 .thread-action-created-and-date,
 .comment-action,
-.comment-action-button {
+.comment-action-button,
+.thread-action-button button,
+.comment-action-button button {
   display: flex;
   align-items: center;
+}
+
+.thread-action-button button,
+.comment-action-button button {
+  margin-right: 5px;
+  padding: 5px;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
 }
 
 .thread-action-button .icon,
@@ -82,18 +93,24 @@
   margin: 0 5px 0 10px;
 }
 
-.thread-detail {
-  padding: 20px;
-  border-radius: 10px;
-  background-color: var(--white);
-  color: var(--black);
-  margin-bottom: 20px;
-}
-
 .thread-comment-input {
   display: flex;
   flex-direction: column;
   margin: 20px 0;
+}
+
+.thread-comment-input .comment-button {
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: var(--light-blue);
+  color: var(--white);
+  border: none;
+  transition: all .3s ease-in;
+}
+
+.thread-comment-input .comment-button:hover {
+  background-color: var(--dark-blue);
 }
 
 .thread-comment-input .input-body:focus {
