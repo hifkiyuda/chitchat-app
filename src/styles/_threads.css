@@ -1,8 +1,8 @@
 .thread-item {
   padding: 20px;
   margin-bottom: 20px;
-  background-color: var(--list-item);
-  color: var(--list-text);
+  background-color: var(--white);
+  color: var(--black);
   border-radius: 10px;
   font-size: 1rem;
 }
@@ -13,8 +13,8 @@
 }
 
 .thread-body .category {
-  background-color: var(--category);
-  color: var(--category-text);
+  background-color: var(--light-blue);
+  color: var(--white);
   padding: 10px;
   border-radius: 10px;
   display: inline-block;
@@ -27,13 +27,13 @@
 
 .detail-link {
   text-decoration: none;
-  color: var(--list-text);
+  color: var(--black);
   font-weight: 400;
   transition: all .2s ease-in;
 }
 
 .detail-link:hover {
-  color: var(--button-hover);
+  color: var(--dark-blue);
 }
 
 .thread-body .body-item {
@@ -51,28 +51,17 @@
 
 .thread-action,
 .thread-action-button,
-.thread-action-button button,
 .thread-action-buttons,
 .thread-action-created-and-date,
 .comment-action,
-.comment-action-button,
-.comment-action-button button {
+.comment-action-button {
   display: flex;
   align-items: center;
 }
 
-.thread-action-button button,
-.comment-action-button button {
-  margin-right: 5px;
-  padding: 5px;
-  font-size: 20px;
-  background-color: transparent;
-  border: none;
-}
-
 .thread-action-button .icon,
 .comment-action-button .icon {
-  color: var(--list-text);
+  color: var(--black);
 }
 
 .thread-action-button,
@@ -96,8 +85,8 @@
 .thread-detail {
   padding: 20px;
   border-radius: 10px;
-  background-color: var(--list-item);
-  color: var(--list-text);
+  background-color: var(--white);
+  color: var(--black);
   margin-bottom: 20px;
 }
 
@@ -107,33 +96,11 @@
   margin: 20px 0;
 }
 
-.thread-comment-input .comment-button {
-  padding: 15px;
-  border-radius: 10px;
-  font-size: 16px;
-  background-color: var(--button-background);
-  color: var(--button-text);
-  border: none;
-  transition: all .3s ease-in;
-}
-
-.thread-comment-input .comment-button:hover {
-  background-color: var(--button-hover);
-}
-
 .thread-comment-input .input-body:focus {
   outline: none;
 }
 
-.comment-item {
-  padding: 20px;
-  margin: 10px 0;
-  border-radius: 10px;
-  background-color: var(--list-item);
-  color: var(--list-text);
-}
-
-.comment-item .comment-content {
+.comment-content {
   margin: 20px 0;
 }
 

@@ -12,6 +12,7 @@ import { asyncPreloadProcess } from './states/isPreload/action';
 import { asyncUnsetAuthUser } from './states/authUser/action';
 import Loading from './components/Loading';
 import NotFoundPage from './pages/NotFoundPage';
+import Container from './components/styled/Container';
 
 function App() {
   const {
@@ -37,14 +38,14 @@ function App() {
     return (
       <>
         <Loading />
-        <div className="app-container">
+        <Container>
           <main>
             <Routes>
               <Route path="/*" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
             </Routes>
           </main>
-        </div>
+        </Container>
       </>
     );
   }
@@ -52,7 +53,7 @@ function App() {
   return (
     <>
       <Loading />
-      <div className="app-container">
+      <Container>
         <Header logout={onLogout} />
         <main>
           <Routes>
@@ -63,7 +64,7 @@ function App() {
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </main>
-      </div>
+      </Container>
     </>
   );
 }

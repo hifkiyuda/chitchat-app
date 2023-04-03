@@ -5,6 +5,8 @@ import {
 } from 'react-icons/ai';
 import parser from 'html-react-parser';
 import { postedAt } from '../utils';
+import Card from './styled/Card';
+import Action from './styled/Action';
 
 function CommentItem({
   id, owner, content, upVotesBy, downVotesBy, createdAt, authUser, like, dislike, neutralize,
@@ -28,7 +30,7 @@ function CommentItem({
   };
 
   return (
-    <div className="comment-item">
+    <Card backgroundColor="white" color="black">
       <div className="comment-profile">
         <img src={owner.avatar} alt={owner.name} />
         <p><strong>{owner.name}</strong></p>
@@ -38,34 +40,34 @@ function CommentItem({
         <div className="comment-action-button">
           { isCommentLiked
             ? (
-              <button type="button" aria-label="like" onClick={onNeutralize}>
+              <Action type="button" aria-label="like" onClick={onNeutralize}>
                 <AiFillLike className="icon" style={{ color: '#5b68fe' }} />
-              </button>
+              </Action>
             )
             : (
-              <button type="button" aria-label="like" onClick={onLikeClick}>
+              <Action type="button" aria-label="like" onClick={onLikeClick}>
                 <AiOutlineLike className="icon" />
-              </button>
+              </Action>
             )}
           <p>{upVotesBy.length}</p>
         </div>
         <div className="comment-action-button">
           { isCommentDisliked
             ? (
-              <button type="button" aria-label="like" onClick={onNeutralize}>
+              <Action type="button" aria-label="like" onClick={onNeutralize}>
                 <AiFillDislike className="icon" style={{ color: '#5b68fe' }} />
-              </button>
+              </Action>
             )
             : (
-              <button type="button" aria-label="like" onClick={onDislikeClick}>
+              <Action type="button" aria-label="like" onClick={onDislikeClick}>
                 <AiOutlineDislike className="icon" />
-              </button>
+              </Action>
             )}
           <p>{downVotesBy.length}</p>
         </div>
         <p className="comment-action-date">{postedAt(createdAt)}</p>
       </div>
-    </div>
+    </Card>
   );
 }
 

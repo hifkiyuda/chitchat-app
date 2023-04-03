@@ -7,6 +7,8 @@ import { BiCommentDetail } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import parser from 'html-react-parser';
 import { postedAt } from '../utils';
+import Card from './styled/Card';
+import Action from './styled/Action';
 
 function ThreadItem({
   id, title, body, category, upVotesBy, downVotesBy, createdAt, totalComments, user, authUser, like, dislike, neutralize,
@@ -30,7 +32,7 @@ function ThreadItem({
   };
 
   return (
-    <div className="thread-item">
+    <Card backgroundColor="white" color="black">
       <div className="thread-body">
         <p className="category">{`#${category}`}</p>
         <h2 className="title"><Link className="detail-link" to={`/threads/${id}`}>{title}</Link></h2>
@@ -41,33 +43,33 @@ function ThreadItem({
           <div className="thread-action-button">
             { isThreadLiked
               ? (
-                <button type="button" aria-label="like" onClick={onNeutralize}>
+                <Action type="button" aria-label="like" onClick={onNeutralize}>
                   <AiFillLike className="icon" style={{ color: '#5b68fe' }} />
-                </button>
+                </Action>
               )
               : (
-                <button type="button" aria-label="like" onClick={onLikeClick}>
+                <Action type="button" aria-label="like" onClick={onLikeClick}>
                   <AiOutlineLike className="icon" />
-                </button>
+                </Action>
               )}
             <p>{upVotesBy.length}</p>
           </div>
           <div className="thread-action-button">
             { isThreadDisliked
               ? (
-                <button type="button" aria-label="like" onClick={onNeutralize}>
+                <Action type="button" aria-label="like" onClick={onNeutralize}>
                   <AiFillDislike className="icon" style={{ color: '#5b68fe' }} />
-                </button>
+                </Action>
               )
               : (
-                <button type="button" aria-label="like" onClick={onDislikeClick}>
+                <Action type="button" aria-label="like" onClick={onDislikeClick}>
                   <AiOutlineDislike className="icon" />
-                </button>
+                </Action>
               )}
             <p>{downVotesBy.length}</p>
           </div>
           <div className="thread-action-button">
-            <button type="button"><Link to={`/threads/${id}`}><BiCommentDetail className="icon" /></Link></button>
+            <Action type="button"><Link to={`/threads/${id}`} style={{ display: 'flex', alignItems: 'center' }}><BiCommentDetail className="icon" /></Link></Action>
             <p>{totalComments}</p>
           </div>
         </div>
@@ -80,7 +82,7 @@ function ThreadItem({
           </p>
         </div>
       </div>
-    </div>
+    </Card>
   );
 }
 

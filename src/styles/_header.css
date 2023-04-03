@@ -27,7 +27,7 @@
 
 .navigation nav a:hover,
 .navigation button:hover {
-  color: var(--button-hover);
+  color: var(--dark-blue);
 }
 
 .navigation button {

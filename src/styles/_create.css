@@ -44,14 +44,3 @@
 .input-body {
   min-height: 100px;
 }
-
-.create-thread-form button {
-  background-color: var(--button-background);
-  color: var(--button-text);
-  transition: all .3s ease-in;
-  border: none;
-}
-
-.create-thread-form button:hover {
-  background-color: var(--button-hover);
-}

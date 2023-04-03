@@ -5,6 +5,8 @@ import {
 } from 'react-icons/ai';
 import parser from 'html-react-parser';
 import { postedAt } from '../utils';
+import Card from './styled/Card';
+import Action from './styled/Action';
 
 function ThreadDetail({
   title, body, category, upVotesBy, downVotesBy, createdAt, owner, authUser, like, dislike, neutralize,
@@ -28,7 +30,7 @@ function ThreadDetail({
   };
 
   return (
-    <div className="thread-detail">
+    <Card backgroundColor="white" color="black">
       <div className="thread-body">
         <p className="category">{`#${category}`}</p>
         <h2 className="title">{title}</h2>
@@ -39,28 +41,28 @@ function ThreadDetail({
           <div className="thread-action-button">
             { isDetailThreadLiked
               ? (
-                <button type="button" aria-label="like" onClick={onNeutralize}>
+                <Action type="button" aria-label="like" onClick={onNeutralize}>
                   <AiFillLike className="icon" style={{ color: '#5b68fe' }} />
-                </button>
+                </Action>
               )
               : (
-                <button type="button" aria-label="like" onClick={onLikeClick}>
+                <Action type="button" aria-label="like" onClick={onLikeClick}>
                   <AiOutlineLike className="icon" />
-                </button>
+                </Action>
               )}
             <p>{upVotesBy.length}</p>
           </div>
           <div className="thread-action-button">
             { isDetailThreadDisliked
               ? (
-                <button type="button" aria-label="like" onClick={onNeutralize}>
+                <Action type="button" aria-label="like" onClick={onNeutralize}>
                   <AiFillDislike className="icon" style={{ color: '#5b68fe' }} />
-                </button>
+                </Action>
               )
               : (
-                <button type="button" aria-label="like" onClick={onDislikeClick}>
+                <Action type="button" aria-label="like" onClick={onDislikeClick}>
                   <AiOutlineDislike className="icon" />
-                </button>
+                </Action>
               )}
             <p>{downVotesBy.length}</p>
           </div>
@@ -74,7 +76,7 @@ function ThreadDetail({
           </div>
         </div>
       </div>
-    </div>
+    </Card>
   );
 }
 

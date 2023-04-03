@@ -8,17 +8,25 @@
 @import url('./_responsive.css');
 
 :root {
-  --main-text: #222222;
+  --black: #222222;
   --button-background: #5b68fe;
   --button-hover: #3939f1;
   --button-text: #eeeeee;
-  --border-input: #8d8d8d;
   --list-item: #eaeaea;
   --list-text: #222222;
   --comment-item: #eaeaea;
   --category: #5b68fe;
   --category-text: #eaeaea;
   --category-box: #222222;
+
+  --black: #222222;
+  --white: #eeeeee;
+  --grey: #8d8d8d;
+  --light-blue: #5b68fe;
+  --dark-blue: #3939f1;
+  --border-input: #8d8d8d;
+
+
 }
 
 * {
@@ -28,18 +36,13 @@
 }
 
 body {
-  color: var(--main-text);
+  color: var(--black);
   font-family: 'Inter', sans-serif;
   font-size: 16px;
 }
 
-.app-container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
 a {
-  color: var(--main-text);
+  color: var(--black);
 }
 
 a,

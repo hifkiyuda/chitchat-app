@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from './styled/Button';
 
 function CategoryItem({
   category, clickCategory, clearCategory, activeCategory,
@@ -15,7 +16,7 @@ function CategoryItem({
   };
 
   return (
-    <button type="button" onClick={onCategoryClick}>{`#${category}`}</button>
+    <Button type="button" backgroundColor="lightBlue" color="white" hoverBackgroundColor="darkBlue" onClick={onCategoryClick}>{`#${category}`}</Button>
   );
 }
 

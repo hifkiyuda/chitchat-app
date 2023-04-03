@@ -62,11 +62,6 @@
     font-size: 1.3rem;
   }
 
-  .thread-item,
-  .thread-detail {
-    padding: 15px;
-  }
-
   .thread-body .title {
     font-size: 1.2rem;
   }

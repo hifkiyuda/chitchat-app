@@ -15,16 +15,6 @@
 .home-page-popular-category .categories button {
   padding: 10px;
   margin: 5px;
-  border-radius: 10px;
-  border: none;
-  background-color: var(--category);
-  color: var(--category-text);
-  font-size: 1rem;
-  transition: all .3s ease-in;
-}
-
-.home-page-popular-category .categories button:hover {
-  background-color: var(--button-hover);
 }
 
 .create-new-thread {
@@ -36,11 +26,11 @@
   font-size: 60px;
   border: none;
   background-color: transparent;
-  color: var(--category);
+  color: var(--light-blue);
   transition: all .3s ease-in;
 }
 
 .create-new-thread:hover {
   transform: scale(1.1);
-  color: var(--button-hover);
+  color: var(--light-blue);
 }
